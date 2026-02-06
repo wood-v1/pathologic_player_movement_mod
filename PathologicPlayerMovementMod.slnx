@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="PathologicPlayerMovementMod.vcxproj" Id="70472339-0c80-4df9-aa9f-888ae8ed4090" />
+</Solution>
