@@ -1,0 +1,952 @@
+Engine.dll+1037F0 - 55                    - push ebp
+Engine.dll+1037F1 - 8B EC                 - mov ebp,esp
+Engine.dll+1037F3 - 83 E4 F8              - and esp,-08 { 248 }
+Engine.dll+1037F6 - 6A FF                 - push -01 { 255 }
+Engine.dll+1037F8 - 68 C6F7AE69           - push Engine.dll+1EF7C6 { (29880) }
+Engine.dll+1037FD - 64 A1 00000000        - mov eax,fs:[00000000] { 0 }
+Engine.dll+103803 - 50                    - push eax
+Engine.dll+103804 - 64 89 25 00000000     - mov fs:[00000000],esp { 0 }
+Engine.dll+10380B - 81 EC B4010000        - sub esp,000001B4 { 436 }
+Engine.dll+103811 - 56                    - push esi
+Engine.dll+103812 - 57                    - push edi
+Engine.dll+103813 - 8B 7D 08              - mov edi,[ebp+08]
+Engine.dll+103816 - 8B F1                 - mov esi,ecx
+Engine.dll+103818 - 8B CF                 - mov ecx,edi
+Engine.dll+10381A - 89 74 24 20           - mov [esp+20],esi
+Engine.dll+10381E - 8B 07                 - mov eax,[edi]
+Engine.dll+103820 - 8B 40 34              - mov eax,[eax+34]
+Engine.dll+103823 - FF D0                 - call eax
+Engine.dll+103825 - 8D 8C 24 84010000     - lea ecx,[esp+00000184]
+Engine.dll+10382C - 51                    - push ecx
+Engine.dll+10382D - 8D 8C 24 84010000     - lea ecx,[esp+00000184]
+Engine.dll+103834 - 8B 10                 - mov edx,[eax]
+Engine.dll+103836 - 51                    - push ecx
+Engine.dll+103837 - 8B C8                 - mov ecx,eax
+Engine.dll+103839 - FF 52 1C              - call dword ptr [edx+1C]
+Engine.dll+10383C - 8B 07                 - mov eax,[edi]
+Engine.dll+10383E - 8D 4C 24 50           - lea ecx,[esp+50]
+Engine.dll+103842 - 51                    - push ecx
+Engine.dll+103843 - 8B CF                 - mov ecx,edi
+Engine.dll+103845 - FF 50 14              - call dword ptr [eax+14]
+Engine.dll+103848 - 8D 44 24 0C           - lea eax,[esp+0C]
+Engine.dll+10384C - 8B CF                 - mov ecx,edi
+Engine.dll+10384E - 50                    - push eax
+Engine.dll+10384F - E8 FC5E0100           - call Engine.dll+119750
+Engine.dll+103854 - 8B 07                 - mov eax,[edi]
+Engine.dll+103856 - 8D 8C 24 98000000     - lea ecx,[esp+00000098]
+Engine.dll+10385D - 51                    - push ecx
+Engine.dll+10385E - 8B CF                 - mov ecx,edi
+Engine.dll+103860 - FF 50 3C              - call dword ptr [eax+3C]
+Engine.dll+103863 - 8B 07                 - mov eax,[edi]
+Engine.dll+103865 - 8B CF                 - mov ecx,edi
+Engine.dll+103867 - 8B 40 24              - mov eax,[eax+24]
+Engine.dll+10386A - FF D0                 - call eax
+Engine.dll+10386C - 84 C0                 - test al,al
+Engine.dll+10386E - 0F84 A6010000         - je Engine.dll+103A1A
+Engine.dll+103874 - F3 0F10 9C 24 98000000  - movss xmm3,[esp+00000098]
+Engine.dll+10387D - F3 0F10 AC 24 9C000000  - movss xmm5,[esp+0000009C]
+Engine.dll+103886 - 0F28 CB               - movaps xmm1,xmm3
+Engine.dll+103889 - F3 0F10 A4 24 A0000000  - movss xmm4,[esp+000000A0]
+Engine.dll+103892 - 0F28 C5               - movaps xmm0,xmm5
+Engine.dll+103895 - F3 0F59 C5            - mulss xmm0,xmm5
+Engine.dll+103899 - F3 0F59 CB            - mulss xmm1,xmm3
+Engine.dll+10389D - F3 0F58 C8            - addss xmm1,xmm0
+Engine.dll+1038A1 - 0F28 C4               - movaps xmm0,xmm4
+Engine.dll+1038A4 - F3 0F59 C4            - mulss xmm0,xmm4
+Engine.dll+1038A8 - F3 0F58 C8            - addss xmm1,xmm0
+Engine.dll+1038AC - F3 0F10 05 68C3AF69   - movss xmm0,[Engine.dll+1FC368] { (1,00) }
+Engine.dll+1038B4 - 0F2F C1               - comiss xmm0,xmm1
+Engine.dll+1038B7 - 76 21                 - jna Engine.dll+1038DA
+Engine.dll+1038B9 - 0F57 C0               - xorps xmm0,xmm0
+Engine.dll+1038BC - C7 44 24 68 00000000  - mov [esp+68],00000000 { 0 }
+Engine.dll+1038C4 - 8B 44 24 68           - mov eax,[esp+68]
+Engine.dll+1038C8 - 0F14 C0               - unpcklps xmm0,xmm0
+Engine.dll+1038CB - 66 0FD6 44 24 50      - movq [esp+50],xmm0
+Engine.dll+1038D1 - 89 44 24 58           - mov [esp+58],eax
+Engine.dll+1038D5 - E9 12010000           - jmp Engine.dll+1039EC
+Engine.dll+1038DA - F3 0F10 55 10         - movss xmm2,[ebp+10]
+Engine.dll+1038DF - 8B CE                 - mov ecx,esi
+Engine.dll+1038E1 - F3 0F10 4C 24 54      - movss xmm1,[esp+54]
+Engine.dll+1038E7 - F3 0F59 DA            - mulss xmm3,xmm2
+Engine.dll+1038EB - F3 0F59 EA            - mulss xmm5,xmm2
+Engine.dll+1038EF - F3 0F58 5C 24 50      - addss xmm3,[esp+50]
+Engine.dll+1038F5 - F3 0F59 E2            - mulss xmm4,xmm2
+Engine.dll+1038F9 - F3 0F58 CD            - addss xmm1,xmm5
+Engine.dll+1038FD - F3 0F58 64 24 58      - addss xmm4,[esp+58]
+Engine.dll+103903 - 0F28 C3               - movaps xmm0,xmm3
+Engine.dll+103906 - 0F14 C1               - unpcklps xmm0,xmm1
+Engine.dll+103909 - 66 0FD6 44 24 50      - movq [esp+50],xmm0
+Engine.dll+10390F - F3 0F10 05 DC47B069   - movss xmm0,[Engine.dll+2047DC] { (-0,10) }
+Engine.dll+103917 - F3 0F11 64 24 68      - movss [esp+68],xmm4
+Engine.dll+10391D - 8B 44 24 68           - mov eax,[esp+68]
+Engine.dll+103921 - F3 0F59 D8            - mulss xmm3,xmm0
+Engine.dll+103925 - 89 44 24 58           - mov [esp+58],eax
+Engine.dll+103929 - 8B 06                 - mov eax,[esi]
+Engine.dll+10392B - F3 0F59 C8            - mulss xmm1,xmm0
+Engine.dll+10392F - F3 0F59 E0            - mulss xmm4,xmm0
+Engine.dll+103933 - 8B 40 18              - mov eax,[eax+18]
+Engine.dll+103936 - F3 0F59 DA            - mulss xmm3,xmm2
+Engine.dll+10393A - F3 0F59 CA            - mulss xmm1,xmm2
+Engine.dll+10393E - F3 0F59 E2            - mulss xmm4,xmm2
+Engine.dll+103942 - F3 0F11 5C 24 28      - movss [esp+28],xmm3
+Engine.dll+103948 - F3 0F11 4C 24 6C      - movss [esp+6C],xmm1
+Engine.dll+10394E - F3 0F11 64 24 5C      - movss [esp+5C],xmm4
+Engine.dll+103954 - FF D0                 - call eax
+Engine.dll+103956 - F3 0F10 4C 24 6C      - movss xmm1,[esp+6C]
+Engine.dll+10395C - F3 0F10 5C 24 28      - movss xmm3,[esp+28]
+Engine.dll+103962 - F3 0F10 64 24 5C      - movss xmm4,[esp+5C]
+Engine.dll+103968 - F3 0F10 54 24 0C      - movss xmm2,[esp+0C]
+Engine.dll+10396E - D9 5C 24 18           - fstp dword ptr [esp+18]
+Engine.dll+103972 - F3 0F10 44 24 18      - movss xmm0,[esp+18]
+Engine.dll+103978 - F3 0F59 C8            - mulss xmm1,xmm0
+Engine.dll+10397C - F3 0F59 D8            - mulss xmm3,xmm0
+Engine.dll+103980 - F3 0F59 E0            - mulss xmm4,xmm0
+Engine.dll+103984 - F3 0F10 44 24 54      - movss xmm0,[esp+54]
+Engine.dll+10398A - F3 0F58 5C 24 50      - addss xmm3,[esp+50]
+Engine.dll+103990 - F3 0F58 64 24 58      - addss xmm4,[esp+58]
+Engine.dll+103996 - F3 0F58 C1            - addss xmm0,xmm1
+Engine.dll+10399A - F3 0F10 4D 10         - movss xmm1,[ebp+10]
+Engine.dll+10399F - F3 0F11 5C 24 50      - movss [esp+50],xmm3
+Engine.dll+1039A5 - F3 0F59 D9            - mulss xmm3,xmm1
+Engine.dll+1039A9 - F3 0F11 44 24 54      - movss [esp+54],xmm0
+Engine.dll+1039AF - F3 0F59 C1            - mulss xmm0,xmm1
+Engine.dll+1039B3 - F3 0F11 64 24 58      - movss [esp+58],xmm4
+Engine.dll+1039B9 - F3 0F58 D3            - addss xmm2,xmm3
+Engine.dll+1039BD - F3 0F59 E1            - mulss xmm4,xmm1
+Engine.dll+1039C1 - F3 0F10 4C 24 10      - movss xmm1,[esp+10]
+Engine.dll+1039C7 - F3 0F58 C8            - addss xmm1,xmm0
+Engine.dll+1039CB - F3 0F10 44 24 14      - movss xmm0,[esp+14]
+Engine.dll+1039D1 - F3 0F58 C4            - addss xmm0,xmm4
+Engine.dll+1039D5 - 0F14 D1               - unpcklps xmm2,xmm1
+Engine.dll+1039D8 - F3 0F11 44 24 68      - movss [esp+68],xmm0
+Engine.dll+1039DE - 8B 44 24 68           - mov eax,[esp+68]
+Engine.dll+1039E2 - 66 0FD6 54 24 0C      - movq [esp+0C],xmm2
+Engine.dll+1039E8 - 89 44 24 14           - mov [esp+14],eax
+Engine.dll+1039EC - 8D 44 24 0C           - lea eax,[esp+0C]
+Engine.dll+1039F0 - 8B CF                 - mov ecx,edi
+Engine.dll+1039F2 - 50                    - push eax
+Engine.dll+1039F3 - E8 585E0100           - call Engine.dll+119850
+Engine.dll+1039F8 - 8B 07                 - mov eax,[edi]
+Engine.dll+1039FA - 8D 4C 24 50           - lea ecx,[esp+50]
+Engine.dll+1039FE - 51                    - push ecx
+Engine.dll+1039FF - 8B CF                 - mov ecx,edi
+Engine.dll+103A01 - FF 50 18              - call dword ptr [eax+18]
+Engine.dll+103A04 - 8B 8C 24 BC010000     - mov ecx,[esp+000001BC]
+Engine.dll+103A0B - 64 89 0D 00000000     - mov fs:[00000000],ecx { 0 }
+Engine.dll+103A12 - 5F                    - pop edi
+Engine.dll+103A13 - 5E                    - pop esi
+Engine.dll+103A14 - 8B E5                 - mov esp,ebp
+Engine.dll+103A16 - 5D                    - pop ebp
+Engine.dll+103A17 - C2 0C00               - ret 000C { 12 }
+Engine.dll+103A1A - 8B 07                 - mov eax,[edi]
+Engine.dll+103A1C - 8B CF                 - mov ecx,edi
+Engine.dll+103A1E - 8B 40 20              - mov eax,[eax+20]
+Engine.dll+103A21 - FF D0                 - call eax
+Engine.dll+103A23 - 84 C0                 - test al,al
+Engine.dll+103A25 - 0F84 AA000000         - je Engine.dll+103AD5
+Engine.dll+103A2B - F3 0F10 84 24 9C000000  - movss xmm0,[esp+0000009C]
+Engine.dll+103A34 - F3 0F10 8C 24 98000000  - movss xmm1,[esp+00000098]
+Engine.dll+103A3D - F3 0F10 15 A417B069   - movss xmm2,[Engine.dll+2017A4] { (0,01) }
+Engine.dll+103A45 - F3 0F59 C0            - mulss xmm0,xmm0
+Engine.dll+103A49 - F3 0F59 C9            - mulss xmm1,xmm1
+Engine.dll+103A4D - F3 0F58 C8            - addss xmm1,xmm0
+Engine.dll+103A51 - F3 0F10 84 24 A0000000  - movss xmm0,[esp+000000A0]
+Engine.dll+103A5A - F3 0F59 C0            - mulss xmm0,xmm0
+Engine.dll+103A5E - F3 0F58 C8            - addss xmm1,xmm0
+Engine.dll+103A62 - 0F2F D1               - comiss xmm2,xmm1
+Engine.dll+103A65 - 72 6E                 - jb Engine.dll+103AD5
+Engine.dll+103A67 - F3 0F10 44 24 50      - movss xmm0,[esp+50]
+Engine.dll+103A6D - F3 0F10 4C 24 54      - movss xmm1,[esp+54]
+Engine.dll+103A73 - F3 0F59 C0            - mulss xmm0,xmm0
+Engine.dll+103A77 - F3 0F59 C9            - mulss xmm1,xmm1
+Engine.dll+103A7B - F3 0F58 C8            - addss xmm1,xmm0
+Engine.dll+103A7F - F3 0F10 44 24 58      - movss xmm0,[esp+58]
+Engine.dll+103A85 - F3 0F59 C0            - mulss xmm0,xmm0
+Engine.dll+103A89 - F3 0F58 C8            - addss xmm1,xmm0
+Engine.dll+103A8D - 0F2F D1               - comiss xmm2,xmm1
+Engine.dll+103A90 - 76 43                 - jna Engine.dll+103AD5
+Engine.dll+103A92 - 8D 44 24 0C           - lea eax,[esp+0C]
+Engine.dll+103A96 - 8B CF                 - mov ecx,edi
+Engine.dll+103A98 - 50                    - push eax
+Engine.dll+103A99 - E8 B25D0100           - call Engine.dll+119850
+Engine.dll+103A9E - 8B 07                 - mov eax,[edi]
+Engine.dll+103AA0 - 8D 4C 24 50           - lea ecx,[esp+50]
+Engine.dll+103AA4 - 51                    - push ecx
+Engine.dll+103AA5 - 8B CF                 - mov ecx,edi
+Engine.dll+103AA7 - FF 50 18              - call dword ptr [eax+18]
+Engine.dll+103AAA - 8B 07                 - mov eax,[edi]
+Engine.dll+103AAC - 8B CF                 - mov ecx,edi
+Engine.dll+103AAE - 8B 40 34              - mov eax,[eax+34]
+Engine.dll+103AB1 - FF D0                 - call eax
+Engine.dll+103AB3 - 8D 4C 24 0C           - lea ecx,[esp+0C]
+Engine.dll+103AB7 - 51                    - push ecx
+Engine.dll+103AB8 - 8B C8                 - mov ecx,eax
+Engine.dll+103ABA - 8B 10                 - mov edx,[eax]
+Engine.dll+103ABC - FF 52 18              - call dword ptr [edx+18]
+Engine.dll+103ABF - 8B 8C 24 BC010000     - mov ecx,[esp+000001BC]
+Engine.dll+103AC6 - 64 89 0D 00000000     - mov fs:[00000000],ecx { 0 }
+Engine.dll+103ACD - 5F                    - pop edi
+Engine.dll+103ACE - 5E                    - pop esi
+Engine.dll+103ACF - 8B E5                 - mov esp,ebp
+Engine.dll+103AD1 - 5D                    - pop ebp
+Engine.dll+103AD2 - C2 0C00               - ret 000C { 12 }
+Engine.dll+103AD5 - 8B 06                 - mov eax,[esi]
+Engine.dll+103AD7 - 8B CE                 - mov ecx,esi
+Engine.dll+103AD9 - 8B 40 14              - mov eax,[eax+14]
+Engine.dll+103ADC - FF D0                 - call eax
+Engine.dll+103ADE - F3 0F10 45 10         - movss xmm0,[ebp+10]
+Engine.dll+103AE3 - 8B CF                 - mov ecx,edi
+Engine.dll+103AE5 - F3 0F10 9C 24 98000000  - movss xmm3,[esp+00000098]
+Engine.dll+103AEE - F3 0F10 8C 24 A0000000  - movss xmm1,[esp+000000A0]
+Engine.dll+103AF7 - 8B 07                 - mov eax,[edi]
+Engine.dll+103AF9 - D9 5C 24 18           - fstp dword ptr [esp+18]
+Engine.dll+103AFD - F3 0F10 54 24 18      - movss xmm2,[esp+18]
+Engine.dll+103B03 - 0F57 15 E0C6AF69      - xorps xmm2,[Engine.dll+1FC6E0] { (-2147483648) }
+Engine.dll+103B0A - 8B 40 2C              - mov eax,[eax+2C]
+Engine.dll+103B0D - F3 0F59 D8            - mulss xmm3,xmm0
+Engine.dll+103B11 - F3 0F59 C8            - mulss xmm1,xmm0
+Engine.dll+103B15 - F3 0F58 5C 24 50      - addss xmm3,[esp+50]
+Engine.dll+103B1B - F3 0F11 94 24 9C000000  - movss [esp+0000009C],xmm2
+Engine.dll+103B24 - F3 0F58 4C 24 58      - addss xmm1,[esp+58]
+Engine.dll+103B2A - F3 0F59 D0            - mulss xmm2,xmm0
+Engine.dll+103B2E - F3 0F11 44 24 28      - movss [esp+28],xmm0
+Engine.dll+103B34 - F3 0F10 44 24 54      - movss xmm0,[esp+54]
+Engine.dll+103B3A - F3 0F58 C2            - addss xmm0,xmm2
+Engine.dll+103B3E - F3 0F11 5C 24 2C      - movss [esp+2C],xmm3
+Engine.dll+103B44 - F3 0F11 4C 24 34      - movss [esp+34],xmm1
+Engine.dll+103B4A - F3 0F11 44 24 30      - movss [esp+30],xmm0
+Engine.dll+103B50 - FF D0                 - call eax
+Engine.dll+103B52 - 84 C0                 - test al,al
+Engine.dll+103B54 - 0F84 BA000000         - je Engine.dll+103C14
+Engine.dll+103B5A - 8B 07                 - mov eax,[edi]
+Engine.dll+103B5C - 8B CF                 - mov ecx,edi
+Engine.dll+103B5E - 8B 40 20              - mov eax,[eax+20]
+Engine.dll+103B61 - FF D0                 - call eax
+Engine.dll+103B63 - 84 C0                 - test al,al
+Engine.dll+103B65 - 8B CE                 - mov ecx,esi
+Engine.dll+103B67 - 8B 06                 - mov eax,[esi]
+Engine.dll+103B69 - 8B 40 18              - mov eax,[eax+18]
+Engine.dll+103B6C - 74 4B                 - je Engine.dll+103BB9
+Engine.dll+103B6E - FF D0                 - call eax
+Engine.dll+103B70 - F3 0F10 44 24 50      - movss xmm0,[esp+50]
+Engine.dll+103B76 - 8B CE                 - mov ecx,esi
+Engine.dll+103B78 - F3 0F59 45 10         - mulss xmm0,[ebp+10]
+Engine.dll+103B7D - 8B 06                 - mov eax,[esi]
+Engine.dll+103B7F - F3 0F11 44 24 18      - movss [esp+18],xmm0
+Engine.dll+103B85 - D8 4C 24 18           - fmul dword ptr [esp+18]
+Engine.dll+103B89 - 8B 40 18              - mov eax,[eax+18]
+Engine.dll+103B8C - D8 6C 24 2C           - fsubr dword ptr [esp+2C]
+Engine.dll+103B90 - D9 5C 24 2C           - fstp dword ptr [esp+2C]
+Engine.dll+103B94 - FF D0                 - call eax
+Engine.dll+103B96 - F3 0F10 44 24 58      - movss xmm0,[esp+58]
+Engine.dll+103B9C - F3 0F10 6D 10         - movss xmm5,[ebp+10]
+Engine.dll+103BA1 - F3 0F59 C5            - mulss xmm0,xmm5
+Engine.dll+103BA5 - F3 0F11 44 24 18      - movss [esp+18],xmm0
+Engine.dll+103BAB - D8 4C 24 18           - fmul dword ptr [esp+18]
+Engine.dll+103BAF - D8 6C 24 34           - fsubr dword ptr [esp+34]
+Engine.dll+103BB3 - D9 5C 24 34           - fstp dword ptr [esp+34]
+Engine.dll+103BB7 - EB 60                 - jmp Engine.dll+103C19
+Engine.dll+103BB9 - FF D0                 - call eax
+Engine.dll+103BBB - F3 0F10 44 24 50      - movss xmm0,[esp+50]
+Engine.dll+103BC1 - 8B CE                 - mov ecx,esi
+Engine.dll+103BC3 - F3 0F59 05 A817B069   - mulss xmm0,[Engine.dll+2017A8] { (0,30) }
+Engine.dll+103BCB - 8B 06                 - mov eax,[esi]
+Engine.dll+103BCD - F3 0F59 45 10         - mulss xmm0,[ebp+10]
+Engine.dll+103BD2 - 8B 40 18              - mov eax,[eax+18]
+Engine.dll+103BD5 - F3 0F11 44 24 18      - movss [esp+18],xmm0
+Engine.dll+103BDB - D8 4C 24 18           - fmul dword ptr [esp+18]
+Engine.dll+103BDF - D8 6C 24 2C           - fsubr dword ptr [esp+2C]
+Engine.dll+103BE3 - D9 5C 24 2C           - fstp dword ptr [esp+2C]
+Engine.dll+103BE7 - FF D0                 - call eax
+Engine.dll+103BE9 - F3 0F10 44 24 58      - movss xmm0,[esp+58]
+Engine.dll+103BEF - F3 0F59 05 A817B069   - mulss xmm0,[Engine.dll+2017A8] { (0,30) }
+Engine.dll+103BF7 - F3 0F10 6D 10         - movss xmm5,[ebp+10]
+Engine.dll+103BFC - F3 0F59 C5            - mulss xmm0,xmm5
+Engine.dll+103C00 - F3 0F11 44 24 18      - movss [esp+18],xmm0
+Engine.dll+103C06 - D8 4C 24 18           - fmul dword ptr [esp+18]
+Engine.dll+103C0A - D8 6C 24 34           - fsubr dword ptr [esp+34]
+Engine.dll+103C0E - D9 5C 24 34           - fstp dword ptr [esp+34]
+Engine.dll+103C12 - EB 05                 - jmp Engine.dll+103C19
+Engine.dll+103C14 - F3 0F10 6D 10         - movss xmm5,[ebp+10]
+Engine.dll+103C19 - F3 0F10 4C 24 30      - movss xmm1,[esp+30]
+Engine.dll+103C1F - F3 0F10 05 E047B069   - movss xmm0,[Engine.dll+2047E0] { (-2500,00) }
+Engine.dll+103C27 - 0F2F C1               - comiss xmm0,xmm1
+Engine.dll+103C2A - F3 0F11 4C 24 24      - movss [esp+24],xmm1
+Engine.dll+103C30 - 76 0F                 - jna Engine.dll+103C41
+Engine.dll+103C32 - 0F28 C8               - movaps xmm1,xmm0
+Engine.dll+103C35 - F3 0F11 4C 24 24      - movss [esp+24],xmm1
+Engine.dll+103C3B - F3 0F11 4C 24 30      - movss [esp+30],xmm1
+Engine.dll+103C41 - F3 0F7E 74 24 0C      - movq xmm6,[esp+0C]
+Engine.dll+103C47 - 8B 4C 24 14           - mov ecx,[esp+14]
+Engine.dll+103C4B - 66 0F7F F0            - movdqa xmm0,xmm6
+Engine.dll+103C4F - 66 0FD6 84 24 B0000000  - movq [esp+000000B0],xmm0
+Engine.dll+103C58 - 8B C1                 - mov eax,ecx
+Engine.dll+103C5A - 66 0FD6 84 24 8C000000  - movq [esp+0000008C],xmm0
+Engine.dll+103C63 - F3 0F7E 44 24 2C      - movq xmm0,[esp+2C]
+Engine.dll+103C69 - 66 0FD6 84 24 00010000  - movq [esp+00000100],xmm0
+Engine.dll+103C72 - 0F57 C0               - xorps xmm0,xmm0
+Engine.dll+103C75 - 89 84 24 84000000     - mov [esp+00000084],eax
+Engine.dll+103C7C - 0F28 D8               - movaps xmm3,xmm0
+Engine.dll+103C7F - 89 84 24 94000000     - mov [esp+00000094],eax
+Engine.dll+103C86 - 0F28 D0               - movaps xmm2,xmm0
+Engine.dll+103C89 - 8B 44 24 34           - mov eax,[esp+34]
+Engine.dll+103C8D - 0F28 E0               - movaps xmm4,xmm0
+Engine.dll+103C90 - 89 84 24 88000000     - mov [esp+00000088],eax
+Engine.dll+103C97 - 66 0FD6 74 24 44      - movq [esp+44],xmm6
+Engine.dll+103C9D - 89 4C 24 4C           - mov [esp+4C],ecx
+Engine.dll+103CA1 - F3 0F11 5C 24 38      - movss [esp+38],xmm3
+Engine.dll+103CA7 - F3 0F11 54 24 3C      - movss [esp+3C],xmm2
+Engine.dll+103CAD - F3 0F11 64 24 40      - movss [esp+40],xmm4
+Engine.dll+103CB3 - C7 44 24 18 00000000  - mov [esp+18],00000000 { 0 }
+Engine.dll+103CBB - C7 84 24 E8000000 00000000 - mov [esp+000000E8],00000000 { 0 }
+Engine.dll+103CC6 - C7 84 24 EC000000 00000000 - mov [esp+000000EC],00000000 { 0 }
+Engine.dll+103CD1 - C7 84 24 F0000000 00000000 - mov [esp+000000F0],00000000 { 0 }
+Engine.dll+103CDC - C7 84 24 C4010000 00000000 - mov [esp+000001C4],00000000 { 0 }
+Engine.dll+103CE7 - C7 84 24 A4000000 00000000 - mov [esp+000000A4],00000000 { 0 }
+Engine.dll+103CF2 - C7 84 24 A8000000 00000000 - mov [esp+000000A8],00000000 { 0 }
+Engine.dll+103CFD - C7 84 24 AC000000 00000000 - mov [esp+000000AC],00000000 { 0 }
+Engine.dll+103D08 - 0F2F 2D A444B069      - comiss xmm5,[Engine.dll+2044A4] { (0,00) }
+Engine.dll+103D0F - 8B 55 0C              - mov edx,[ebp+0C]
+Engine.dll+103D12 - C6 84 24 C4010000 01  - mov byte ptr [esp+000001C4],01 { 1 }
+Engine.dll+103D1A - C6 44 24 1F 00        - mov byte ptr [esp+1F],00 { 0 }
+Engine.dll+103D1F - F3 0F11 6C 24 5C      - movss [esp+5C],xmm5
+Engine.dll+103D25 - 0F86 C4040000         - jbe Engine.dll+1041EF
+Engine.dll+103D2B - F3 0F7E 7C 24 38      - movq xmm7,[esp+38]
+Engine.dll+103D31 - F3 0F59 D1            - mulss xmm2,xmm1
+Engine.dll+103D35 - 0F28 C3               - movaps xmm0,xmm3
+Engine.dll+103D38 - 89 8C 24 14010000     - mov [esp+00000114],ecx
+Engine.dll+103D3F - 8B CF                 - mov ecx,edi
+Engine.dll+103D41 - F3 0F10 5C 24 2C      - movss xmm3,[esp+2C]
+Engine.dll+103D47 - F3 0F59 C3            - mulss xmm0,xmm3
+Engine.dll+103D4B - 52                    - push edx
+Engine.dll+103D4C - C7 84 24 30010000 00000000 - mov [esp+00000130],00000000 { 0 }
+Engine.dll+103D57 - C7 84 24 2C010000 00000000 - mov [esp+0000012C],00000000 { 0 }
+Engine.dll+103D62 - F3 0F58 D0            - addss xmm2,xmm0
+Engine.dll+103D66 - C7 84 24 28010000 00000000 - mov [esp+00000128],00000000 { 0 }
+Engine.dll+103D71 - 0F28 C4               - movaps xmm0,xmm4
+Engine.dll+103D74 - C7 84 24 34010000 0000803F - mov [esp+00000134],3F800000 { 1,00 }
+Engine.dll+103D7F - F3 0F10 64 24 38      - movss xmm4,[esp+38]
+Engine.dll+103D85 - F3 0F59 C4            - mulss xmm0,xmm4
+Engine.dll+103D89 - C7 84 24 40010000 00000000 - mov [esp+00000140],00000000 { 0 }
+Engine.dll+103D94 - C7 84 24 3C010000 00000000 - mov [esp+0000013C],00000000 { 0 }
+Engine.dll+103D9F - C7 84 24 38010000 00000000 - mov [esp+00000138],00000000 { 0 }
+Engine.dll+103DAA - F3 0F58 D0            - addss xmm2,xmm0
+Engine.dll+103DAE - C7 84 24 44010000 0000803F - mov [esp+00000144],3F800000 { 1,00 }
+Engine.dll+103DB9 - 66 0FD6 B4 24 10010000  - movq [esp+00000110],xmm6
+Engine.dll+103DC2 - 66 0FD6 7C 24 64      - movq [esp+64],xmm7
+Engine.dll+103DC8 - 0F28 C2               - movaps xmm0,xmm2
+Engine.dll+103DCB - 0F28 CA               - movaps xmm1,xmm2
+Engine.dll+103DCE - F3 0F59 44 24 3C      - mulss xmm0,[esp+3C]
+Engine.dll+103DD4 - F3 0F59 4C 24 40      - mulss xmm1,[esp+40]
+Engine.dll+103DDA - F3 0F59 54 24 44      - mulss xmm2,[esp+44]
+Engine.dll+103DE0 - F3 0F5C D8            - subss xmm3,xmm0
+Engine.dll+103DE4 - F3 0F10 44 24 28      - movss xmm0,[esp+28]
+Engine.dll+103DEA - F3 0F5C C1            - subss xmm0,xmm1
+Engine.dll+103DEE - F3 0F5C E2            - subss xmm4,xmm2
+Engine.dll+103DF2 - F3 0F10 54 24 10      - movss xmm2,[esp+10]
+Engine.dll+103DF8 - F3 0F11 44 24 28      - movss [esp+28],xmm0
+Engine.dll+103DFE - 0F28 C3               - movaps xmm0,xmm3
+Engine.dll+103E01 - F3 0F10 4C 24 28      - movss xmm1,[esp+28]
+Engine.dll+103E07 - 0F14 C1               - unpcklps xmm0,xmm1
+Engine.dll+103E0A - 66 0FD6 44 24 30      - movq [esp+30],xmm0
+Engine.dll+103E10 - F3 0F10 C1            - movss xmm0,xmm1
+Engine.dll+103E14 - F3 0F10 4C 24 14      - movss xmm1,[esp+14]
+Engine.dll+103E1A - F3 0F59 C5            - mulss xmm0,xmm5
+Engine.dll+103E1E - F3 0F11 A4 24 50010000  - movss [esp+00000150],xmm4
+Engine.dll+103E27 - 8B 84 24 50010000     - mov eax,[esp+00000150]
+Engine.dll+103E2E - F3 0F59 E5            - mulss xmm4,xmm5
+Engine.dll+103E32 - F3 0F58 C8            - addss xmm1,xmm0
+Engine.dll+103E36 - 89 44 24 38           - mov [esp+38],eax
+Engine.dll+103E3A - F3 0F10 44 24 18      - movss xmm0,[esp+18]
+Engine.dll+103E40 - F3 0F59 DD            - mulss xmm3,xmm5
+Engine.dll+103E44 - F3 0F58 C4            - addss xmm0,xmm4
+Engine.dll+103E48 - F3 0F58 D3            - addss xmm2,xmm3
+Engine.dll+103E4C - F3 0F11 84 24 80010000  - movss [esp+00000180],xmm0
+Engine.dll+103E55 - 8B 84 24 80010000     - mov eax,[esp+00000180]
+Engine.dll+103E5C - 89 44 24 50           - mov [esp+50],eax
+Engine.dll+103E60 - 89 84 24 24010000     - mov [esp+00000124],eax
+Engine.dll+103E67 - 8B 44 24 44           - mov eax,[esp+44]
+Engine.dll+103E6B - 89 44 24 6C           - mov [esp+6C],eax
+Engine.dll+103E6F - 8B 07                 - mov eax,[edi]
+Engine.dll+103E71 - 0F14 D1               - unpcklps xmm2,xmm1
+Engine.dll+103E74 - 66 0FD6 54 24 48      - movq [esp+48],xmm2
+Engine.dll+103E7A - 66 0FD6 94 24 1C010000  - movq [esp+0000011C],xmm2
+Engine.dll+103E83 - 8B 40 34              - mov eax,[eax+34]
+Engine.dll+103E86 - FF D0                 - call eax
+Engine.dll+103E88 - 8B 4E 08              - mov ecx,[esi+08]
+Engine.dll+103E8B - 50                    - push eax
+Engine.dll+103E8C - 8D 84 24 14010000     - lea eax,[esp+00000114]
+Engine.dll+103E93 - 50                    - push eax
+Engine.dll+103E94 - 8D 84 24 D0000000     - lea eax,[esp+000000D0]
+Engine.dll+103E9B - 50                    - push eax
+Engine.dll+103E9C - E8 9F79FFFF           - call Engine.dll+FB840
+Engine.dll+103EA1 - 84 C0                 - test al,al
+Engine.dll+103EA3 - 0F84 2F030000         - je Engine.dll+1041D8
+Engine.dll+103EA9 - 8B 07                 - mov eax,[edi]
+Engine.dll+103EAB - 8B CF                 - mov ecx,edi
+Engine.dll+103EAD - 8B 40 34              - mov eax,[eax+34]
+Engine.dll+103EB0 - FF D0                 - call eax
+Engine.dll+103EB2 - 8B C8                 - mov ecx,eax
+Engine.dll+103EB4 - 8B 10                 - mov edx,[eax]
+Engine.dll+103EB6 - 8B 42 10              - mov eax,[edx+10]
+Engine.dll+103EB9 - FF D0                 - call eax
+Engine.dll+103EBB - 85 C0                 - test eax,eax
+Engine.dll+103EBD - 74 22                 - je Engine.dll+103EE1
+Engine.dll+103EBF - 8B 07                 - mov eax,[edi]
+Engine.dll+103EC1 - 8B CF                 - mov ecx,edi
+Engine.dll+103EC3 - 8B 40 34              - mov eax,[eax+34]
+Engine.dll+103EC6 - FF D0                 - call eax
+Engine.dll+103EC8 - 8B C8                 - mov ecx,eax
+Engine.dll+103ECA - 8D 84 24 C4000000     - lea eax,[esp+000000C4]
+Engine.dll+103ED1 - 50                    - push eax
+Engine.dll+103ED2 - 8B 01                 - mov eax,[ecx]
+Engine.dll+103ED4 - 8B 40 10              - mov eax,[eax+10]
+Engine.dll+103ED7 - FF D0                 - call eax
+Engine.dll+103ED9 - 50                    - push eax
+Engine.dll+103EDA - 8B CE                 - mov ecx,esi
+Engine.dll+103EDC - E8 EFD9FFFF           - call Engine.dll+1018D0
+Engine.dll+103EE1 - 8B 8C 24 E0000000     - mov ecx,[esp+000000E0]
+Engine.dll+103EE8 - 85 C9                 - test ecx,ecx
+Engine.dll+103EEA - 0F84 C8000000         - je Engine.dll+103FB8
+Engine.dll+103EF0 - 8B 01                 - mov eax,[ecx]
+Engine.dll+103EF2 - 8B 40 10              - mov eax,[eax+10]
+Engine.dll+103EF5 - FF D0                 - call eax
+Engine.dll+103EF7 - 85 C0                 - test eax,eax
+Engine.dll+103EF9 - 0F84 B9000000         - je Engine.dll+103FB8
+Engine.dll+103EFF - 8B 8C 24 E0000000     - mov ecx,[esp+000000E0]
+Engine.dll+103F06 - 8B 01                 - mov eax,[ecx]
+Engine.dll+103F08 - 8B 40 10              - mov eax,[eax+10]
+Engine.dll+103F0B - FF D0                 - call eax
+Engine.dll+103F0D - 8B 17                 - mov edx,[edi]
+Engine.dll+103F0F - 8B CF                 - mov ecx,edi
+Engine.dll+103F11 - 8B F0                 - mov esi,eax
+Engine.dll+103F13 - C7 84 24 88010000 00000000 - mov [esp+00000188],00000000 { 0 }
+Engine.dll+103F1E - C7 84 24 A8010000 FFFFFFFF - mov [esp+000001A8],FFFFFFFF { -1 }
+Engine.dll+103F29 - 8B 52 34              - mov edx,[edx+34]
+Engine.dll+103F2C - FF D2                 - call edx
+Engine.dll+103F2E - F3 0F10 1D E0C6AF69   - movss xmm3,[Engine.dll+1FC6E0] { (0,00) }
+Engine.dll+103F36 - F3 0F10 84 24 DC000000  - movss xmm0,[esp+000000DC]
+Engine.dll+103F3F - F3 0F10 94 24 D4000000  - movss xmm2,[esp+000000D4]
+Engine.dll+103F48 - 0F57 C3               - xorps xmm0,xmm3
+Engine.dll+103F4B - F3 0F10 8C 24 D8000000  - movss xmm1,[esp+000000D8]
+Engine.dll+103F54 - 0F57 D3               - xorps xmm2,xmm3
+Engine.dll+103F57 - 89 84 24 A4010000     - mov [esp+000001A4],eax
+Engine.dll+103F5E - 0F57 CB               - xorps xmm1,xmm3
+Engine.dll+103F61 - F3 0F11 84 24 58010000  - movss [esp+00000158],xmm0
+Engine.dll+103F6A - 8B 84 24 58010000     - mov eax,[esp+00000158]
+Engine.dll+103F71 - F3 0F7E 84 24 C8000000  - movq xmm0,[esp+000000C8]
+Engine.dll+103F7A - 89 84 24 A0010000     - mov [esp+000001A0],eax
+Engine.dll+103F81 - 8B 84 24 D0000000     - mov eax,[esp+000000D0]
+Engine.dll+103F88 - 89 84 24 94010000     - mov [esp+00000194],eax
+Engine.dll+103F8F - 8D 84 24 88010000     - lea eax,[esp+00000188]
+Engine.dll+103F96 - 50                    - push eax
+Engine.dll+103F97 - 56                    - push esi
+Engine.dll+103F98 - 8B 74 24 28           - mov esi,[esp+28]
+Engine.dll+103F9C - 8B CE                 - mov ecx,esi
+Engine.dll+103F9E - 0F14 D1               - unpcklps xmm2,xmm1
+Engine.dll+103FA1 - 66 0FD6 94 24 A0010000  - movq [esp+000001A0],xmm2
+Engine.dll+103FAA - 66 0FD6 84 24 94010000  - movq [esp+00000194],xmm0
+Engine.dll+103FB3 - E8 18D9FFFF           - call Engine.dll+1018D0
+Engine.dll+103FB8 - F3 0F10 84 24 D8000000  - movss xmm0,[esp+000000D8]
+Engine.dll+103FC1 - F3 0F10 8C 24 D4000000  - movss xmm1,[esp+000000D4]
+Engine.dll+103FCA - 0F28 D8               - movaps xmm3,xmm0
+Engine.dll+103FCD - F3 0F10 94 24 DC000000  - movss xmm2,[esp+000000DC]
+Engine.dll+103FD6 - F3 0F59 D8            - mulss xmm3,xmm0
+Engine.dll+103FDA - F3 0F11 44 24 70      - movss [esp+70],xmm0
+Engine.dll+103FE0 - 0F28 C1               - movaps xmm0,xmm1
+Engine.dll+103FE3 - F3 0F59 C1            - mulss xmm0,xmm1
+Engine.dll+103FE7 - F3 0F11 4C 24 24      - movss [esp+24],xmm1
+Engine.dll+103FED - F3 0F11 54 24 6C      - movss [esp+6C],xmm2
+Engine.dll+103FF3 - F3 0F58 D8            - addss xmm3,xmm0
+Engine.dll+103FF7 - 0F28 C2               - movaps xmm0,xmm2
+Engine.dll+103FFA - F3 0F59 C2            - mulss xmm0,xmm2
+Engine.dll+103FFE - F3 0F58 D8            - addss xmm3,xmm0
+Engine.dll+104002 - 0F2F 1D A444B069      - comiss xmm3,[Engine.dll+2044A4] { (0,00) }
+Engine.dll+104009 - 0F86 DD010000         - jbe Engine.dll+1041EC
+Engine.dll+10400F - 0F57 C0               - xorps xmm0,xmm0
+Engine.dll+104012 - F3 0F5A C3            - cvtss2sd xmm0,xmm3
+Engine.dll+104016 - E8 85800700           - call Engine.dll+17C0A0
+Engine.dll+10401B - F3 0F10 0D 68C3AF69   - movss xmm1,[Engine.dll+1FC368] { (1,00) }
+Engine.dll+104023 - F2 0F5A C0            - cvtsd2ss xmm0,xmm0
+Engine.dll+104027 - F3 0F10 7C 24 70      - movss xmm7,[esp+70]
+Engine.dll+10402D - F3 0F5E C8            - divss xmm1,xmm0
+Engine.dll+104031 - F3 0F10 44 24 24      - movss xmm0,[esp+24]
+Engine.dll+104037 - F3 0F10 54 24 6C      - movss xmm2,[esp+6C]
+Engine.dll+10403D - F3 0F59 C1            - mulss xmm0,xmm1
+Engine.dll+104041 - F3 0F59 F9            - mulss xmm7,xmm1
+Engine.dll+104045 - F3 0F59 D1            - mulss xmm2,xmm1
+Engine.dll+104049 - 0F28 C8               - movaps xmm1,xmm0
+Engine.dll+10404C - 0F14 CF               - unpcklps xmm1,xmm7
+Engine.dll+10404F - 66 0FD6 4C 24 70      - movq [esp+70],xmm1
+Engine.dll+104055 - 66 0FD6 4C 24 38      - movq [esp+38],xmm1
+Engine.dll+10405B - F3 0F10 8C 24 C4000000  - movss xmm1,[esp+000000C4]
+Engine.dll+104064 - 0F2F 0D A417B069      - comiss xmm1,[Engine.dll+2017A4] { (0,01) }
+Engine.dll+10406B - F3 0F11 94 24 64010000  - movss [esp+00000164],xmm2
+Engine.dll+104074 - 8B 84 24 64010000     - mov eax,[esp+00000164]
+Engine.dll+10407B - F3 0F11 44 24 24      - movss [esp+24],xmm0
+Engine.dll+104081 - F3 0F11 54 24 6C      - movss [esp+6C],xmm2
+Engine.dll+104087 - 89 44 24 40           - mov [esp+40],eax
+Engine.dll+10408B - 0F86 BA000000         - jbe Engine.dll+10414B
+Engine.dll+104091 - F3 0F10 74 24 44      - movss xmm6,[esp+44]
+Engine.dll+104097 - F3 0F10 C1            - movss xmm0,xmm1
+Engine.dll+10409B - F3 0F5C 05 A417B069   - subss xmm0,[Engine.dll+2017A4] { (0,01) }
+Engine.dll+1040A3 - F3 0F5C 74 24 0C      - subss xmm6,[esp+0C]
+Engine.dll+1040A9 - F3 0F10 6C 24 48      - movss xmm5,[esp+48]
+Engine.dll+1040AF - F3 0F5C 6C 24 10      - subss xmm5,[esp+10]
+Engine.dll+1040B5 - F3 0F10 64 24 4C      - movss xmm4,[esp+4C]
+Engine.dll+1040BB - F3 0F5C 64 24 14      - subss xmm4,[esp+14]
+Engine.dll+1040C1 - F3 0F59 3D D447B069   - mulss xmm7,[Engine.dll+2047D4] { (0,05) }
+Engine.dll+1040C9 - F3 0F59 15 B0EFAF69   - mulss xmm2,[Engine.dll+1FEFB0] { (0,10) }
+Engine.dll+1040D1 - F3 0F59 F0            - mulss xmm6,xmm0
+Engine.dll+1040D5 - F3 0F59 E8            - mulss xmm5,xmm0
+Engine.dll+1040D9 - F3 0F58 74 24 0C      - addss xmm6,[esp+0C]
+Engine.dll+1040DF - F3 0F59 E0            - mulss xmm4,xmm0
+Engine.dll+1040E3 - F3 0F10 05 68C3AF69   - movss xmm0,[Engine.dll+1FC368] { (1,00) }
+Engine.dll+1040EB - F3 0F58 6C 24 10      - addss xmm5,[esp+10]
+Engine.dll+1040F1 - F3 0F58 64 24 14      - addss xmm4,[esp+14]
+Engine.dll+1040F7 - F3 0F5C C1            - subss xmm0,xmm1
+Engine.dll+1040FB - F3 0F10 4C 24 24      - movss xmm1,[esp+24]
+Engine.dll+104101 - F3 0F59 0D B0EFAF69   - mulss xmm1,[Engine.dll+1FEFB0] { (0,10) }
+Engine.dll+104109 - F3 0F58 FD            - addss xmm7,xmm5
+Engine.dll+10410D - F3 0F58 D4            - addss xmm2,xmm4
+Engine.dll+104111 - F3 0F58 05 A417B069   - addss xmm0,[Engine.dll+2017A4] { (0,01) }
+Engine.dll+104119 - F3 0F58 CE            - addss xmm1,xmm6
+Engine.dll+10411D - F3 0F11 94 24 FC000000  - movss [esp+000000FC],xmm2
+Engine.dll+104126 - F3 0F59 44 24 28      - mulss xmm0,[esp+28]
+Engine.dll+10412C - 8B 8C 24 FC000000     - mov ecx,[esp+000000FC]
+Engine.dll+104133 - 0F28 F1               - movaps xmm6,xmm1
+Engine.dll+104136 - 89 4C 24 14           - mov [esp+14],ecx
+Engine.dll+10413A - 0F14 F7               - unpcklps xmm6,xmm7
+Engine.dll+10413D - F3 0F11 44 24 28      - movss [esp+28],xmm0
+Engine.dll+104143 - 66 0FD6 74 24 0C      - movq [esp+0C],xmm6
+Engine.dll+104149 - EB 3D                 - jmp Engine.dll+104188
+Engine.dll+10414B - F3 0F5C 7C 24 64      - subss xmm7,[esp+64]
+Engine.dll+104151 - F3 0F5C 44 24 60      - subss xmm0,[esp+60]
+Engine.dll+104157 - F3 0F5C 54 24 68      - subss xmm2,[esp+68]
+Engine.dll+10415D - F3 0F59 FF            - mulss xmm7,xmm7
+Engine.dll+104161 - F3 0F59 C0            - mulss xmm0,xmm0
+Engine.dll+104165 - F3 0F59 D2            - mulss xmm2,xmm2
+Engine.dll+104169 - F3 0F58 F8            - addss xmm7,xmm0
+Engine.dll+10416D - F3 0F10 05 ACEFAF69   - movss xmm0,[Engine.dll+1FEFAC] { (0,00) }
+Engine.dll+104175 - F3 0F58 FA            - addss xmm7,xmm2
+Engine.dll+104179 - 0F2F C7               - comiss xmm0,xmm7
+Engine.dll+10417C - 77 53                 - ja Engine.dll+1041D1
+Engine.dll+10417E - 8B 4C 24 14           - mov ecx,[esp+14]
+Engine.dll+104182 - F3 0F7E 74 24 0C      - movq xmm6,[esp+0C]
+Engine.dll+104188 - 8B 44 24 18           - mov eax,[esp+18]
+Engine.dll+10418C - 40                    - inc eax
+Engine.dll+10418D - 89 44 24 18           - mov [esp+18],eax
+Engine.dll+104191 - 83 F8 06              - cmp eax,06 { 6 }
+Engine.dll+104194 - 7D 3B                 - jnl Engine.dll+1041D1
+Engine.dll+104196 - F3 0F10 6C 24 28      - movss xmm5,[esp+28]
+Engine.dll+10419C - 0F2F 2D A444B069      - comiss xmm5,[Engine.dll+2044A4] { (0,00) }
+Engine.dll+1041A3 - 8B 55 0C              - mov edx,[ebp+0C]
+Engine.dll+1041A6 - 76 47                 - jna Engine.dll+1041EF
+Engine.dll+1041A8 - F3 0F10 4C 24 30      - movss xmm1,[esp+30]
+Engine.dll+1041AE - F3 0F7E 7C 24 70      - movq xmm7,[esp+70]
+Engine.dll+1041B4 - F3 0F10 5C 24 38      - movss xmm3,[esp+38]
+Engine.dll+1041BA - F3 0F10 54 24 3C      - movss xmm2,[esp+3C]
+Engine.dll+1041C0 - F3 0F10 64 24 40      - movss xmm4,[esp+40]
+Engine.dll+1041C6 - F3 0F11 4C 24 24      - movss [esp+24],xmm1
+Engine.dll+1041CC - E9 60FBFFFF           - jmp Engine.dll+103D31
+Engine.dll+1041D1 - C6 44 24 1F 01        - mov byte ptr [esp+1F],01 { 1 }
+Engine.dll+1041D6 - EB 14                 - jmp Engine.dll+1041EC
+Engine.dll+1041D8 - F3 0F7E 44 24 44      - movq xmm0,[esp+44]
+Engine.dll+1041DE - 8B 44 24 4C           - mov eax,[esp+4C]
+Engine.dll+1041E2 - 66 0FD6 44 24 0C      - movq [esp+0C],xmm0
+Engine.dll+1041E8 - 89 44 24 14           - mov [esp+14],eax
+Engine.dll+1041EC - 8B 55 0C              - mov edx,[ebp+0C]
+Engine.dll+1041EF - 8B 07                 - mov eax,[edi]
+Engine.dll+1041F1 - 8B CF                 - mov ecx,edi
+Engine.dll+1041F3 - 52                    - push edx
+Engine.dll+1041F4 - 8B 40 34              - mov eax,[eax+34]
+Engine.dll+1041F7 - FF D0                 - call eax
+Engine.dll+1041F9 - 8B 4E 08              - mov ecx,[esi+08]
+Engine.dll+1041FC - 50                    - push eax
+Engine.dll+1041FD - 8D 44 24 14           - lea eax,[esp+14]
+Engine.dll+104201 - 50                    - push eax
+Engine.dll+104202 - 8D 84 24 B0000000     - lea eax,[esp+000000B0]
+Engine.dll+104209 - 50                    - push eax
+Engine.dll+10420A - 8D 84 24 F8000000     - lea eax,[esp+000000F8]
+Engine.dll+104211 - 50                    - push eax
+Engine.dll+104212 - E8 9968FFFF           - call Engine.dll+FAAB0
+Engine.dll+104217 - 84 C0                 - test al,al
+Engine.dll+104219 - 0F84 C4000000         - je Engine.dll+1042E3
+Engine.dll+10421F - 8D 84 24 A4000000     - lea eax,[esp+000000A4]
+Engine.dll+104226 - 8B CF                 - mov ecx,edi
+Engine.dll+104228 - 50                    - push eax
+Engine.dll+104229 - 8D 84 24 EC000000     - lea eax,[esp+000000EC]
+Engine.dll+104230 - 50                    - push eax
+Engine.dll+104231 - 8B 07                 - mov eax,[edi]
+Engine.dll+104233 - 8B 40 34              - mov eax,[eax+34]
+Engine.dll+104236 - FF D0                 - call eax
+Engine.dll+104238 - 50                    - push eax
+Engine.dll+104239 - 8D 44 24 18           - lea eax,[esp+18]
+Engine.dll+10423D - 50                    - push eax
+Engine.dll+10423E - 8D 84 24 80000000     - lea eax,[esp+00000080]
+Engine.dll+104245 - 50                    - push eax
+Engine.dll+104246 - E8 05D9FFFF           - call Engine.dll+101B50
+Engine.dll+10424B - 83 C4 14              - add esp,14 { 20 }
+Engine.dll+10424E - 84 C0                 - test al,al
+Engine.dll+104250 - 0F84 29010000         - je Engine.dll+10437F
+Engine.dll+104256 - F3 0F10 44 24 0C      - movss xmm0,[esp+0C]
+Engine.dll+10425C - 0F57 D2               - xorps xmm2,xmm2
+Engine.dll+10425F - F3 0F10 4C 24 70      - movss xmm1,[esp+70]
+Engine.dll+104265 - F3 0F58 C2            - addss xmm0,xmm2
+Engine.dll+104269 - F3 0F58 0D D447B069   - addss xmm1,[Engine.dll+2047D4] { (0,05) }
+Engine.dll+104271 - 8B 46 08              - mov eax,[esi+08]
+Engine.dll+104274 - 8B CF                 - mov ecx,edi
+Engine.dll+104276 - FF 75 0C              - push [ebp+0C]
+Engine.dll+104279 - F3 0F11 44 24 74      - movss [esp+74],xmm0
+Engine.dll+10427F - F3 0F10 44 24 18      - movss xmm0,[esp+18]
+Engine.dll+104285 - F3 0F58 4C 24 14      - addss xmm1,[esp+14]
+Engine.dll+10428B - F3 0F58 C2            - addss xmm0,xmm2
+Engine.dll+10428F - F3 0F11 4C 24 78      - movss [esp+78],xmm1
+Engine.dll+104295 - F3 0F11 44 24 7C      - movss [esp+7C],xmm0
+Engine.dll+10429B - 8B 30                 - mov esi,[eax]
+Engine.dll+10429D - 8B 07                 - mov eax,[edi]
+Engine.dll+10429F - 8B 40 34              - mov eax,[eax+34]
+Engine.dll+1042A2 - FF D0                 - call eax
+Engine.dll+1042A4 - 8B 4C 24 24           - mov ecx,[esp+24]
+Engine.dll+1042A8 - 50                    - push eax
+Engine.dll+1042A9 - 8D 44 24 78           - lea eax,[esp+78]
+Engine.dll+1042AD - 50                    - push eax
+Engine.dll+1042AE - 8B 49 08              - mov ecx,[ecx+08]
+Engine.dll+1042B1 - 8B 46 2C              - mov eax,[esi+2C]
+Engine.dll+1042B4 - FF D0                 - call eax
+Engine.dll+1042B6 - 84 C0                 - test al,al
+Engine.dll+1042B8 - 0F85 BD000000         - jne Engine.dll+10437B
+Engine.dll+1042BE - F3 0F7E 44 24 70      - movq xmm0,[esp+70]
+Engine.dll+1042C4 - 8D 4C 24 2C           - lea ecx,[esp+2C]
+Engine.dll+1042C8 - 8B 44 24 78           - mov eax,[esp+78]
+Engine.dll+1042CC - 66 0FD6 44 24 0C      - movq [esp+0C],xmm0
+Engine.dll+1042D2 - 89 44 24 14           - mov [esp+14],eax
+Engine.dll+1042D6 - C7 44 24 30 00000000  - mov [esp+30],00000000 { 0 }
+Engine.dll+1042DE - E9 9B050000           - jmp Engine.dll+10487E
+Engine.dll+1042E3 - 80 7C 24 1F 00        - cmp byte ptr [esp+1F],00 { 0 }
+Engine.dll+1042E8 - 0F85 91000000         - jne Engine.dll+10437F
+Engine.dll+1042EE - F3 0F10 1D 68C3AF69   - movss xmm3,[Engine.dll+1FC368] { (1,00) }
+Engine.dll+1042F6 - 8D 4C 24 60           - lea ecx,[esp+60]
+Engine.dll+1042FA - F3 0F5E 5C 24 5C      - divss xmm3,[esp+5C]
+Engine.dll+104300 - 8B 07                 - mov eax,[edi]
+Engine.dll+104302 - 51                    - push ecx
+Engine.dll+104303 - 8B CF                 - mov ecx,edi
+Engine.dll+104305 - F3 0F10 44 24 10      - movss xmm0,[esp+10]
+Engine.dll+10430B - F3 0F10 4C 24 14      - movss xmm1,[esp+14]
+Engine.dll+104311 - F3 0F10 54 24 18      - movss xmm2,[esp+18]
+Engine.dll+104317 - F3 0F5C 84 24 90000000  - subss xmm0,[esp+00000090]
+Engine.dll+104320 - F3 0F5C 8C 24 94000000  - subss xmm1,[esp+00000094]
+Engine.dll+104329 - F3 0F5C 94 24 98000000  - subss xmm2,[esp+00000098]
+Engine.dll+104332 - F3 0F59 C3            - mulss xmm0,xmm3
+Engine.dll+104336 - F3 0F59 CB            - mulss xmm1,xmm3
+Engine.dll+10433A - F3 0F59 D3            - mulss xmm2,xmm3
+Engine.dll+10433E - F3 0F11 44 24 64      - movss [esp+64],xmm0
+Engine.dll+104344 - F3 0F11 4C 24 68      - movss [esp+68],xmm1
+Engine.dll+10434A - F3 0F11 54 24 6C      - movss [esp+6C],xmm2
+Engine.dll+104350 - FF 50 18              - call dword ptr [eax+18]
+Engine.dll+104353 - 8D 44 24 0C           - lea eax,[esp+0C]
+Engine.dll+104357 - 8B CF                 - mov ecx,edi
+Engine.dll+104359 - 50                    - push eax
+Engine.dll+10435A - E8 F1540100           - call Engine.dll+119850
+Engine.dll+10435F - 8B 07                 - mov eax,[edi]
+Engine.dll+104361 - 8B CF                 - mov ecx,edi
+Engine.dll+104363 - 8B 40 34              - mov eax,[eax+34]
+Engine.dll+104366 - FF D0                 - call eax
+Engine.dll+104368 - 8D 4C 24 0C           - lea ecx,[esp+0C]
+Engine.dll+10436C - 51                    - push ecx
+Engine.dll+10436D - 8B C8                 - mov ecx,eax
+Engine.dll+10436F - 8B 10                 - mov edx,[eax]
+Engine.dll+104371 - FF 52 18              - call dword ptr [edx+18]
+Engine.dll+104374 - 6A 00                 - push 00 { 0 }
+Engine.dll+104376 - E9 2E050000           - jmp Engine.dll+1048A9
+Engine.dll+10437B - 8B 74 24 20           - mov esi,[esp+20]
+Engine.dll+10437F - F3 0F7E 84 24 00010000  - movq xmm0,[esp+00000100]
+Engine.dll+104388 - 0F57 C9               - xorps xmm1,xmm1
+Engine.dll+10438B - 8B 84 24 88000000     - mov eax,[esp+00000088]
+Engine.dll+104392 - F3 0F7E B4 24 B0000000  - movq xmm6,[esp+000000B0]
+Engine.dll+10439B - 8B 8C 24 84000000     - mov ecx,[esp+00000084]
+Engine.dll+1043A2 - 66 0FD6 44 24 2C      - movq [esp+2C],xmm0
+Engine.dll+1043A8 - F3 0F10 C1            - movss xmm0,xmm1
+Engine.dll+1043AC - 0F14 C1               - unpcklps xmm0,xmm1
+Engine.dll+1043AF - 66 0FD6 44 24 38      - movq [esp+38],xmm0
+Engine.dll+1043B5 - F3 0F10 44 24 5C      - movss xmm0,[esp+5C]
+Engine.dll+1043BB - 0F2F 05 A444B069      - comiss xmm0,[Engine.dll+2044A4] { (0,00) }
+Engine.dll+1043C2 - 89 44 24 34           - mov [esp+34],eax
+Engine.dll+1043C6 - C7 84 24 FC000000 00000000 - mov [esp+000000FC],00000000 { 0 }
+Engine.dll+1043D1 - 8B 84 24 FC000000     - mov eax,[esp+000000FC]
+Engine.dll+1043D8 - 89 4C 24 4C           - mov [esp+4C],ecx
+Engine.dll+1043DC - 89 4C 24 14           - mov [esp+14],ecx
+Engine.dll+1043E0 - C7 44 24 18 00000000  - mov [esp+18],00000000 { 0 }
+Engine.dll+1043E8 - 89 44 24 40           - mov [esp+40],eax
+Engine.dll+1043EC - 0F28 F8               - movaps xmm7,xmm0
+Engine.dll+1043EF - 66 0FD6 74 24 44      - movq [esp+44],xmm6
+Engine.dll+1043F5 - 66 0FD6 74 24 0C      - movq [esp+0C],xmm6
+Engine.dll+1043FB - F3 0F11 7C 24 28      - movss [esp+28],xmm7
+Engine.dll+104401 - 0F86 FF030000         - jbe Engine.dll+104806
+Engine.dll+104407 - EB 07                 - jmp Engine.dll+104410
+Engine.dll+104409 - 8D A4 24 00000000     - lea esp,[esp+00000000]
+Engine.dll+104410 - F3 0F10 6C 24 2C      - movss xmm5,[esp+2C]
+Engine.dll+104416 - F3 0F10 54 24 3C      - movss xmm2,[esp+3C]
+Engine.dll+10441C - F3 0F10 64 24 30      - movss xmm4,[esp+30]
+Engine.dll+104422 - F3 0F10 44 24 38      - movss xmm0,[esp+38]
+Engine.dll+104428 - F3 0F10 5C 24 34      - movss xmm3,[esp+34]
+Engine.dll+10442E - F3 0F59 C5            - mulss xmm0,xmm5
+Engine.dll+104432 - 89 8C 24 14010000     - mov [esp+00000114],ecx
+Engine.dll+104439 - 8B CF                 - mov ecx,edi
+Engine.dll+10443B - F3 0F59 D4            - mulss xmm2,xmm4
+Engine.dll+10443F - C7 84 24 2C010000 00000000 - mov [esp+0000012C],00000000 { 0 }
+Engine.dll+10444A - FF 75 0C              - push [ebp+0C]
+Engine.dll+10444D - C7 84 24 2C010000 00000000 - mov [esp+0000012C],00000000 { 0 }
+Engine.dll+104458 - F3 0F58 D0            - addss xmm2,xmm0
+Engine.dll+10445C - C7 84 24 28010000 00000000 - mov [esp+00000128],00000000 { 0 }
+Engine.dll+104467 - F3 0F10 44 24 44      - movss xmm0,[esp+44]
+Engine.dll+10446D - F3 0F59 C3            - mulss xmm0,xmm3
+Engine.dll+104471 - C7 84 24 34010000 0000803F - mov [esp+00000134],3F800000 { 1,00 }
+Engine.dll+10447C - C7 84 24 40010000 00000000 - mov [esp+00000140],00000000 { 0 }
+Engine.dll+104487 - C7 84 24 3C010000 00000000 - mov [esp+0000013C],00000000 { 0 }
+Engine.dll+104492 - F3 0F58 D0            - addss xmm2,xmm0
+Engine.dll+104496 - C7 84 24 38010000 00000000 - mov [esp+00000138],00000000 { 0 }
+Engine.dll+1044A1 - C7 84 24 44010000 0000803F - mov [esp+00000144],3F800000 { 1,00 }
+Engine.dll+1044AC - 66 0FD6 B4 24 10010000  - movq [esp+00000110],xmm6
+Engine.dll+1044B5 - 0F28 C2               - movaps xmm0,xmm2
+Engine.dll+1044B8 - 0F28 CA               - movaps xmm1,xmm2
+Engine.dll+1044BB - F3 0F59 54 24 44      - mulss xmm2,[esp+44]
+Engine.dll+1044C1 - F3 0F59 44 24 3C      - mulss xmm0,[esp+3C]
+Engine.dll+1044C7 - F3 0F59 4C 24 40      - mulss xmm1,[esp+40]
+Engine.dll+1044CD - F3 0F5C DA            - subss xmm3,xmm2
+Engine.dll+1044D1 - F3 0F5C E8            - subss xmm5,xmm0
+Engine.dll+1044D5 - F3 0F5C E1            - subss xmm4,xmm1
+Engine.dll+1044D9 - F3 0F11 9C 24 00010000  - movss [esp+00000100],xmm3
+Engine.dll+1044E2 - 8B 84 24 00010000     - mov eax,[esp+00000100]
+Engine.dll+1044E9 - 0F28 C5               - movaps xmm0,xmm5
+Engine.dll+1044EC - F3 0F59 DF            - mulss xmm3,xmm7
+Engine.dll+1044F0 - 89 44 24 38           - mov [esp+38],eax
+Engine.dll+1044F4 - 0F14 C4               - unpcklps xmm0,xmm4
+Engine.dll+1044F7 - F3 0F59 EF            - mulss xmm5,xmm7
+Engine.dll+1044FB - F3 0F58 5C 24 18      - addss xmm3,[esp+18]
+Engine.dll+104501 - F3 0F59 E7            - mulss xmm4,xmm7
+Engine.dll+104505 - F3 0F58 6C 24 10      - addss xmm5,[esp+10]
+Engine.dll+10450B - 66 0FD6 44 24 30      - movq [esp+30],xmm0
+Engine.dll+104511 - F3 0F58 64 24 14      - addss xmm4,[esp+14]
+Engine.dll+104517 - F3 0F11 9C 24 68010000  - movss [esp+00000168],xmm3
+Engine.dll+104520 - 8B 84 24 68010000     - mov eax,[esp+00000168]
+Engine.dll+104527 - 89 44 24 50           - mov [esp+50],eax
+Engine.dll+10452B - 89 84 24 24010000     - mov [esp+00000124],eax
+Engine.dll+104532 - 8B 46 08              - mov eax,[esi+08]
+Engine.dll+104535 - 0F14 EC               - unpcklps xmm5,xmm4
+Engine.dll+104538 - 66 0FD6 6C 24 48      - movq [esp+48],xmm5
+Engine.dll+10453E - 66 0FD6 AC 24 1C010000  - movq [esp+0000011C],xmm5
+Engine.dll+104547 - 8B 30                 - mov esi,[eax]
+Engine.dll+104549 - 8B 07                 - mov eax,[edi]
+Engine.dll+10454B - 8B 40 34              - mov eax,[eax+34]
+Engine.dll+10454E - FF D0                 - call eax
+Engine.dll+104550 - 8B 4C 24 24           - mov ecx,[esp+24]
+Engine.dll+104554 - 50                    - push eax
+Engine.dll+104555 - 8D 84 24 14010000     - lea eax,[esp+00000114]
+Engine.dll+10455C - 50                    - push eax
+Engine.dll+10455D - 8B 49 08              - mov ecx,[ecx+08]
+Engine.dll+104560 - 8D 84 24 D0000000     - lea eax,[esp+000000D0]
+Engine.dll+104567 - 50                    - push eax
+Engine.dll+104568 - 8B 46 24              - mov eax,[esi+24]
+Engine.dll+10456B - FF D0                 - call eax
+Engine.dll+10456D - 84 C0                 - test al,al
+Engine.dll+10456F - 0F84 9A030000         - je Engine.dll+10490F
+Engine.dll+104575 - F3 0F10 84 24 D8000000  - movss xmm0,[esp+000000D8]
+Engine.dll+10457E - F3 0F10 94 24 D4000000  - movss xmm2,[esp+000000D4]
+Engine.dll+104587 - 0F28 C8               - movaps xmm1,xmm0
+Engine.dll+10458A - F3 0F59 C8            - mulss xmm1,xmm0
+Engine.dll+10458E - F3 0F11 84 24 88000000  - movss [esp+00000088],xmm0
+Engine.dll+104597 - 0F28 C2               - movaps xmm0,xmm2
+Engine.dll+10459A - F3 0F59 C2            - mulss xmm0,xmm2
+Engine.dll+10459E - 66 0FD6 94 24 00010000  - movq [esp+00000100],xmm2
+Engine.dll+1045A7 - F3 0F10 94 24 DC000000  - movss xmm2,[esp+000000DC]
+Engine.dll+1045B0 - F3 0F58 C8            - addss xmm1,xmm0
+Engine.dll+1045B4 - F3 0F11 94 24 84000000  - movss [esp+00000084],xmm2
+Engine.dll+1045BD - 0F28 C2               - movaps xmm0,xmm2
+Engine.dll+1045C0 - F3 0F59 C2            - mulss xmm0,xmm2
+Engine.dll+1045C4 - F3 0F58 C8            - addss xmm1,xmm0
+Engine.dll+1045C8 - 0F2F 0D A444B069      - comiss xmm1,[Engine.dll+2044A4] { (0,00) }
+Engine.dll+1045CF - 76 58                 - jna Engine.dll+104629
+Engine.dll+1045D1 - 0F57 C0               - xorps xmm0,xmm0
+Engine.dll+1045D4 - F3 0F5A C1            - cvtss2sd xmm0,xmm1
+Engine.dll+1045D8 - E8 C37A0700           - call Engine.dll+17C0A0
+Engine.dll+1045DD - F3 0F10 0D 68C3AF69   - movss xmm1,[Engine.dll+1FC368] { (1,00) }
+Engine.dll+1045E5 - F2 0F5A C0            - cvtsd2ss xmm0,xmm0
+Engine.dll+1045E9 - F3 0F10 94 24 84000000  - movss xmm2,[esp+00000084]
+Engine.dll+1045F2 - F3 0F5E C8            - divss xmm1,xmm0
+Engine.dll+1045F6 - F3 0F7E 84 24 00010000  - movq xmm0,[esp+00000100]
+Engine.dll+1045FF - F3 0F10 9C 24 88000000  - movss xmm3,[esp+00000088]
+Engine.dll+104608 - F3 0F59 D1            - mulss xmm2,xmm1
+Engine.dll+10460C - F3 0F59 C1            - mulss xmm0,xmm1
+Engine.dll+104610 - F3 0F59 D9            - mulss xmm3,xmm1
+Engine.dll+104614 - F3 0F11 94 24 58010000  - movss [esp+00000158],xmm2
+Engine.dll+10461D - 8B 84 24 58010000     - mov eax,[esp+00000158]
+Engine.dll+104624 - 0F14 C3               - unpcklps xmm0,xmm3
+Engine.dll+104627 - EB 1B                 - jmp Engine.dll+104644
+Engine.dll+104629 - 0F57 C9               - xorps xmm1,xmm1
+Engine.dll+10462C - C7 84 24 7C010000 00000000 - mov [esp+0000017C],00000000 { 0 }
+Engine.dll+104637 - 8B 84 24 7C010000     - mov eax,[esp+0000017C]
+Engine.dll+10463E - 0F28 C1               - movaps xmm0,xmm1
+Engine.dll+104641 - 0F14 C1               - unpcklps xmm0,xmm1
+Engine.dll+104644 - F3 0F10 BC 24 C4000000  - movss xmm7,[esp+000000C4]
+Engine.dll+10464D - 0F2F 3D A417B069      - comiss xmm7,[Engine.dll+2017A4] { (0,01) }
+Engine.dll+104654 - 89 44 24 40           - mov [esp+40],eax
+Engine.dll+104658 - 66 0FD6 44 24 38      - movq [esp+38],xmm0
+Engine.dll+10465E - 0F86 73010000         - jbe Engine.dll+1047D7
+Engine.dll+104664 - F3 0F10 4C 24 14      - movss xmm1,[esp+14]
+Engine.dll+10466A - 0F28 C7               - movaps xmm0,xmm7
+Engine.dll+10466D - F3 0F5C 05 A417B069   - subss xmm0,[Engine.dll+2017A4] { (0,01) }
+Engine.dll+104675 - F3 0F10 6C 24 0C      - movss xmm5,[esp+0C]
+Engine.dll+10467B - 8B CF                 - mov ecx,edi
+Engine.dll+10467D - F3 0F10 5C 24 10      - movss xmm3,[esp+10]
+Engine.dll+104683 - F3 0F10 74 24 44      - movss xmm6,[esp+44]
+Engine.dll+104689 - F3 0F10 64 24 48      - movss xmm4,[esp+48]
+Engine.dll+10468F - F3 0F5C F5            - subss xmm6,xmm5
+Engine.dll+104693 - F3 0F10 54 24 4C      - movss xmm2,[esp+4C]
+Engine.dll+104699 - F3 0F5C E3            - subss xmm4,xmm3
+Engine.dll+10469D - 8B 44 24 20           - mov eax,[esp+20]
+Engine.dll+1046A1 - F3 0F5C D1            - subss xmm2,xmm1
+Engine.dll+1046A5 - FF 75 0C              - push [ebp+0C]
+Engine.dll+1046A8 - F3 0F59 F0            - mulss xmm6,xmm0
+Engine.dll+1046AC - 8B 40 08              - mov eax,[eax+08]
+Engine.dll+1046AF - F3 0F59 E0            - mulss xmm4,xmm0
+Engine.dll+1046B3 - F3 0F59 D0            - mulss xmm2,xmm0
+Engine.dll+1046B7 - F3 0F58 EE            - addss xmm5,xmm6
+Engine.dll+1046BB - F3 0F10 05 68C3AF69   - movss xmm0,[Engine.dll+1FC368] { (1,00) }
+Engine.dll+1046C3 - F3 0F58 DC            - addss xmm3,xmm4
+Engine.dll+1046C7 - F3 0F5C C7            - subss xmm0,xmm7
+Engine.dll+1046CB - F3 0F58 CA            - addss xmm1,xmm2
+Engine.dll+1046CF - F3 0F11 AC 24 B4000000  - movss [esp+000000B4],xmm5
+Engine.dll+1046D8 - F3 0F11 9C 24 B8000000  - movss [esp+000000B8],xmm3
+Engine.dll+1046E1 - F3 0F58 05 A417B069   - addss xmm0,[Engine.dll+2017A4] { (0,01) }
+Engine.dll+1046E9 - F3 0F11 8C 24 BC000000  - movss [esp+000000BC],xmm1
+Engine.dll+1046F2 - 8B 30                 - mov esi,[eax]
+Engine.dll+1046F4 - 8B 07                 - mov eax,[edi]
+Engine.dll+1046F6 - F3 0F59 44 24 2C      - mulss xmm0,[esp+2C]
+Engine.dll+1046FC - 8B 40 34              - mov eax,[eax+34]
+Engine.dll+1046FF - 0F28 C8               - movaps xmm1,xmm0
+Engine.dll+104702 - F3 0F11 4C 24 2C      - movss [esp+2C],xmm1
+Engine.dll+104708 - FF D0                 - call eax
+Engine.dll+10470A - 50                    - push eax
+Engine.dll+10470B - 8D 84 24 B8000000     - lea eax,[esp+000000B8]
+Engine.dll+104712 - 50                    - push eax
+Engine.dll+104713 - 8B 44 24 2C           - mov eax,[esp+2C]
+Engine.dll+104717 - 8B 48 08              - mov ecx,[eax+08]
+Engine.dll+10471A - 8B 46 2C              - mov eax,[esi+2C]
+Engine.dll+10471D - FF D0                 - call eax
+Engine.dll+10471F - 84 C0                 - test al,al
+Engine.dll+104721 - 75 1A                 - jne Engine.dll+10473D
+Engine.dll+104723 - F3 0F7E 84 24 B0000000  - movq xmm0,[esp+000000B0]
+Engine.dll+10472C - 8B 84 24 B8000000     - mov eax,[esp+000000B8]
+Engine.dll+104733 - 66 0FD6 44 24 0C      - movq [esp+0C],xmm0
+Engine.dll+104739 - 89 44 24 14           - mov [esp+14],eax
+Engine.dll+10473D - F3 0F10 44 24 40      - movss xmm0,[esp+40]
+Engine.dll+104743 - 8B CF                 - mov ecx,edi
+Engine.dll+104745 - F3 0F59 05 60C3AF69   - mulss xmm0,[Engine.dll+1FC360] { (0,20) }
+Engine.dll+10474D - F3 0F10 54 24 38      - movss xmm2,[esp+38]
+Engine.dll+104753 - F3 0F10 4C 24 3C      - movss xmm1,[esp+3C]
+Engine.dll+104759 - F3 0F58 44 24 14      - addss xmm0,[esp+14]
+Engine.dll+10475F - F3 0F59 15 60C3AF69   - mulss xmm2,[Engine.dll+1FC360] { (0,20) }
+Engine.dll+104767 - F3 0F59 0D B0EFAF69   - mulss xmm1,[Engine.dll+1FEFB0] { (0,10) }
+Engine.dll+10476F - F3 0F58 54 24 0C      - addss xmm2,[esp+0C]
+Engine.dll+104775 - FF 75 0C              - push [ebp+0C]
+Engine.dll+104778 - F3 0F58 4C 24 14      - addss xmm1,[esp+14]
+Engine.dll+10477E - F3 0F11 84 24 50010000  - movss [esp+00000150],xmm0
+Engine.dll+104787 - 8B 84 24 50010000     - mov eax,[esp+00000150]
+Engine.dll+10478E - 89 44 24 50           - mov [esp+50],eax
+Engine.dll+104792 - 8B 44 24 24           - mov eax,[esp+24]
+Engine.dll+104796 - 0F14 D1               - unpcklps xmm2,xmm1
+Engine.dll+104799 - 66 0FD6 54 24 48      - movq [esp+48],xmm2
+Engine.dll+10479F - 8B 40 08              - mov eax,[eax+08]
+Engine.dll+1047A2 - 8B 30                 - mov esi,[eax]
+Engine.dll+1047A4 - 8B 07                 - mov eax,[edi]
+Engine.dll+1047A6 - 8B 40 34              - mov eax,[eax+34]
+Engine.dll+1047A9 - FF D0                 - call eax
+Engine.dll+1047AB - 50                    - push eax
+Engine.dll+1047AC - 8D 44 24 4C           - lea eax,[esp+4C]
+Engine.dll+1047B0 - 50                    - push eax
+Engine.dll+1047B1 - 8B 44 24 2C           - mov eax,[esp+2C]
+Engine.dll+1047B5 - 8B 48 08              - mov ecx,[eax+08]
+Engine.dll+1047B8 - 8B 46 2C              - mov eax,[esi+2C]
+Engine.dll+1047BB - FF D0                 - call eax
+Engine.dll+1047BD - 84 C0                 - test al,al
+Engine.dll+1047BF - 75 16                 - jne Engine.dll+1047D7
+Engine.dll+1047C1 - F3 0F7E 74 24 44      - movq xmm6,[esp+44]
+Engine.dll+1047C7 - 8B 4C 24 4C           - mov ecx,[esp+4C]
+Engine.dll+1047CB - 66 0FD6 74 24 0C      - movq [esp+0C],xmm6
+Engine.dll+1047D1 - 89 4C 24 14           - mov [esp+14],ecx
+Engine.dll+1047D5 - EB 0A                 - jmp Engine.dll+1047E1
+Engine.dll+1047D7 - 8B 4C 24 14           - mov ecx,[esp+14]
+Engine.dll+1047DB - F3 0F7E 74 24 0C      - movq xmm6,[esp+0C]
+Engine.dll+1047E1 - 8B 44 24 18           - mov eax,[esp+18]
+Engine.dll+1047E5 - 40                    - inc eax
+Engine.dll+1047E6 - 89 44 24 18           - mov [esp+18],eax
+Engine.dll+1047EA - 83 F8 06              - cmp eax,06 { 6 }
+Engine.dll+1047ED - 7D 17                 - jnl Engine.dll+104806
+Engine.dll+1047EF - F3 0F10 7C 24 28      - movss xmm7,[esp+28]
+Engine.dll+1047F5 - 0F2F 3D A444B069      - comiss xmm7,[Engine.dll+2044A4] { (0,00) }
+Engine.dll+1047FC - 8B 74 24 20           - mov esi,[esp+20]
+Engine.dll+104800 - 0F87 0AFCFFFF         - ja Engine.dll+104410
+Engine.dll+104806 - 8B 07                 - mov eax,[edi]
+Engine.dll+104808 - 8D 8C 24 AC010000     - lea ecx,[esp+000001AC]
+Engine.dll+10480F - 51                    - push ecx
+Engine.dll+104810 - 8B CF                 - mov ecx,edi
+Engine.dll+104812 - FF 50 14              - call dword ptr [eax+14]
+Engine.dll+104815 - F3 0F10 1D 68C3AF69   - movss xmm3,[Engine.dll+1FC368] { (1,00) }
+Engine.dll+10481D - 8D 8C 24 68010000     - lea ecx,[esp+00000168]
+Engine.dll+104824 - F3 0F5E 5C 24 5C      - divss xmm3,[esp+5C]
+Engine.dll+10482A - F3 0F10 44 24 0C      - movss xmm0,[esp+0C]
+Engine.dll+104830 - F3 0F10 4C 24 10      - movss xmm1,[esp+10]
+Engine.dll+104836 - F3 0F10 54 24 14      - movss xmm2,[esp+14]
+Engine.dll+10483C - F3 0F5C 84 24 8C000000  - subss xmm0,[esp+0000008C]
+Engine.dll+104845 - F3 0F5C 8C 24 90000000  - subss xmm1,[esp+00000090]
+Engine.dll+10484E - F3 0F5C 94 24 94000000  - subss xmm2,[esp+00000094]
+Engine.dll+104857 - F3 0F59 C3            - mulss xmm0,xmm3
+Engine.dll+10485B - F3 0F59 CB            - mulss xmm1,xmm3
+Engine.dll+10485F - F3 0F59 D3            - mulss xmm2,xmm3
+Engine.dll+104863 - F3 0F11 84 24 68010000  - movss [esp+00000168],xmm0
+Engine.dll+10486C - F3 0F11 8C 24 6C010000  - movss [esp+0000016C],xmm1
+Engine.dll+104875 - F3 0F11 94 24 70010000  - movss [esp+00000170],xmm2
+Engine.dll+10487E - 8B 07                 - mov eax,[edi]
+Engine.dll+104880 - 51                    - push ecx
+Engine.dll+104881 - 8B CF                 - mov ecx,edi
+Engine.dll+104883 - FF 50 18              - call dword ptr [eax+18]
+Engine.dll+104886 - 8D 44 24 0C           - lea eax,[esp+0C]
+Engine.dll+10488A - 8B CF                 - mov ecx,edi
+Engine.dll+10488C - 50                    - push eax
+Engine.dll+10488D - E8 BE4F0100           - call Engine.dll+119850
+Engine.dll+104892 - 8B 07                 - mov eax,[edi]
+Engine.dll+104894 - 8B CF                 - mov ecx,edi
+Engine.dll+104896 - 8B 40 34              - mov eax,[eax+34]
+Engine.dll+104899 - FF D0                 - call eax
+Engine.dll+10489B - 8D 4C 24 0C           - lea ecx,[esp+0C]
+Engine.dll+10489F - 51                    - push ecx
+Engine.dll+1048A0 - 8B C8                 - mov ecx,eax
+Engine.dll+1048A2 - 8B 10                 - mov edx,[eax]
+Engine.dll+1048A4 - FF 52 18              - call dword ptr [edx+18]
+Engine.dll+1048A7 - 6A 01                 - push 01 { 1 }
+Engine.dll+1048A9 - 8B 07                 - mov eax,[edi]
+Engine.dll+1048AB - 8B CF                 - mov ecx,edi
+Engine.dll+1048AD - FF 50 1C              - call dword ptr [eax+1C]
+Engine.dll+1048B0 - 8B 84 24 A4000000     - mov eax,[esp+000000A4]
+Engine.dll+1048B7 - 85 C0                 - test eax,eax
+Engine.dll+1048B9 - 74 2A                 - je Engine.dll+1048E5
+Engine.dll+1048BB - 50                    - push eax
+Engine.dll+1048BC - E8 E0640700           - call Engine.dll+17ADA1
+Engine.dll+1048C1 - 83 C4 04              - add esp,04 { 4 }
+Engine.dll+1048C4 - C7 84 24 A4000000 00000000 - mov [esp+000000A4],00000000 { 0 }
+Engine.dll+1048CF - C7 84 24 A8000000 00000000 - mov [esp+000000A8],00000000 { 0 }
+Engine.dll+1048DA - C7 84 24 AC000000 00000000 - mov [esp+000000AC],00000000 { 0 }
+Engine.dll+1048E5 - 8B 84 24 E8000000     - mov eax,[esp+000000E8]
+Engine.dll+1048EC - 85 C0                 - test eax,eax
+Engine.dll+1048EE - 74 09                 - je Engine.dll+1048F9
+Engine.dll+1048F0 - 50                    - push eax
+Engine.dll+1048F1 - E8 AB640700           - call Engine.dll+17ADA1
+Engine.dll+1048F6 - 83 C4 04              - add esp,04 { 4 }
+Engine.dll+1048F9 - 8B 8C 24 BC010000     - mov ecx,[esp+000001BC]
+Engine.dll+104900 - 5F                    - pop edi
+Engine.dll+104901 - 64 89 0D 00000000     - mov fs:[00000000],ecx { 0 }
+Engine.dll+104908 - 5E                    - pop esi
+Engine.dll+104909 - 8B E5                 - mov esp,ebp
+Engine.dll+10490B - 5D                    - pop ebp
+Engine.dll+10490C - C2 0C00               - ret 000C { 12 }

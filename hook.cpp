@@ -46,6 +46,7 @@ DWORD WINAPI MainThread(LPVOID)
 
     while (true)
     {
+        // Detect Caps Lock toggle
         bool capsPressedNow = (GetAsyncKeyState(VK_CAPITAL) & 0x0001) != 0;
         if (capsPressedNow && !prevCapsState)
         {
@@ -54,6 +55,7 @@ DWORD WINAPI MainThread(LPVOID)
         }
         prevCapsState = capsPressedNow;
 
+        // Apply modified values when sprint is active
         if ((GetAsyncKeyState(VK_LSHIFT) & 0x8000) || toggleSpeed)
         {
             *speedCoef = g_speed;
@@ -88,6 +90,7 @@ void InstallHook(DWORD base)
     AllocateMemory();
     DebugLog("Memory allocated successfully\n");
 
+    // Build custom assembly code (code caves)
     BuildCaveDt1();
     DebugLog("Cave built for DT1 successfully\n");
 
@@ -97,6 +100,7 @@ void InstallHook(DWORD base)
     BuildCaveJump();
     DebugLog("Cave built for Jump successfully\n");
 
+    // Install hooks (overwrite original instructions with JMP)
     HookDt(hookDt1, caveDt1);
     HookDt(hookDt2, caveDt2);
 
@@ -106,6 +110,7 @@ void InstallHook(DWORD base)
 
     DebugLog("Jump Hook installed successfully\n");
 
+    // Patch gravity constant directly
     PatchLandingGravity();
     DebugLog("Landing Gravity patched successfully\n");
 }
@@ -184,7 +189,10 @@ void BuildCaveDt1()
         0xE9,0,0,0,0                        // jmp ret
     };
 
+    // Inject pointer to variable
     *(DWORD*)(code + 10) = (DWORD)speedCoef;
+
+    // Calculate relative jump back
     DWORD rel32 = hookDt1Ret - ((DWORD)caveDt1 + sizeof(code));
     *(DWORD*)(code + 21) = rel32;
 
@@ -200,7 +208,10 @@ void BuildCaveDt2()
         0xE9,0,0,0,0                        // jmp ret
     };
 
+    // Inject pointer to variable
     *(DWORD*)(code + 10) = (DWORD)speedCoef;
+
+    // Calculate relative jump back
     DWORD rel32 = hookDt2Ret - ((DWORD)caveDt2 + sizeof(code));
     *(DWORD*)(code + 21) = rel32;
 
