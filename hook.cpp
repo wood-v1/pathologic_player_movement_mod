@@ -7,6 +7,7 @@
 #include <sstream>
 #include <iostream>
 #include <string>
+#include "execute_hook.h"
 
 DWORD hookDt1;
 DWORD hookDt2;
@@ -23,6 +24,22 @@ float* speedCoef;
 int* landingGravityValue;
 float* jumpHeight;
 
+DWORD WINAPI TirednessEffectStart(LPVOID lpParam) {
+    std::string cmd = "setvar ppmm_tiredness_delta " + std::to_string(g_tiredness_delta);
+    ExecCommand(cmd.c_str());
+    Sleep(100);
+    ExecCommand("effect player ppmm_stats_effect.bin");
+
+    DebugLog("Sprint effect applied\n");
+    return 0;
+}
+
+DWORD WINAPI TirednessEffectStop(LPVOID lpParam) {
+    ExecCommand("trigger player ppmm_stats_effect_stop");
+
+    DebugLog("Sprint effect removed\n");
+    return 0;
+}
 
 DWORD WINAPI MainThread(LPVOID)
 {
@@ -39,10 +56,17 @@ DWORD WINAPI MainThread(LPVOID)
 
     DebugLog("Engine.dll initialized\n");
 
-    InstallHook(GetEngineBase());
+    InitExecuteHook(GetEngineBase());
+
+    DebugLog("Execute hook installed\n");
+
+    InstallMovementHook(GetEngineBase());
 
     bool toggleSpeed = false;
     bool prevCapsState = false;
+
+    bool isSprinting = false;
+    bool wasSprinting = false;
 
     while (true)
     {
@@ -55,8 +79,24 @@ DWORD WINAPI MainThread(LPVOID)
         }
         prevCapsState = capsPressedNow;
 
-        // Apply modified values when sprint is active
-        if ((GetAsyncKeyState(VK_LSHIFT) & 0x8000) || toggleSpeed)
+        // Detect current Sprint state
+        isSprinting = ((GetAsyncKeyState(VK_LSHIFT) & 0x8000) || toggleSpeed);
+
+        if (g_tiredness_effect) {
+            if (isSprinting && !wasSprinting)
+            {
+                DebugLog("Sprint START\n");
+                CreateThread(0, 0, TirednessEffectStart, 0, 0, 0);
+            }
+
+            if (!isSprinting && wasSprinting)
+            {
+                DebugLog("Sprint END\n");
+                CreateThread(0, 0, TirednessEffectStop, 0, 0, 0);
+            }
+        }
+
+        if (isSprinting)
         {
             *speedCoef = g_speed;
             *landingGravityValue = g_landing_gravity;
@@ -69,6 +109,8 @@ DWORD WINAPI MainThread(LPVOID)
             *jumpHeight = 1.0f;
         }
 
+        wasSprinting = isSprinting;
+
         Sleep(1);
     }
 
@@ -80,9 +122,9 @@ DWORD GetEngineBase()
     return (DWORD)GetModuleHandleA("Engine.dll");
 }
 
-void InstallHook(DWORD base) 
+void InstallMovementHook(DWORD base) 
 {
-    DebugLog("Installing hook...\n");
+    DebugLog("Installing movement hook...\n");
 
     ResolveAddresses(base);
     DebugLog("Base address resolved successfully\n");

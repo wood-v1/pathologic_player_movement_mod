@@ -15,20 +15,20 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="config.h">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="hook.h">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="execute_hook.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="debug.h">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -47,12 +47,18 @@
     <ClCompile Include="debug.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="execute_hook.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="LICENSE">
       <Filter>Исходные файлы</Filter>
     </None>
     <None Include="README.md">
+      <Filter>Исходные файлы</Filter>
+    </None>
+    <None Include="..\..\..\..\..\Modding\Pathologic\script-sources\ScriptSources\ppmm_stats_effect.sc">
       <Filter>Исходные файлы</Filter>
     </None>
   </ItemGroup>

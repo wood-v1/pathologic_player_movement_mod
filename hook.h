@@ -12,7 +12,7 @@ void TryOpenDebugConsole();
 
 DWORD GetEngineBase();
 
-void InstallHook(DWORD base);
+void InstallMovementHook(DWORD base);
 
 void ResolveAddresses(DWORD base);
 
