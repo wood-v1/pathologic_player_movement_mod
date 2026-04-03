@@ -37,10 +37,9 @@ maintask TEffect: TSlow
 	float ReadSpeedDeltaFromVar() {
 		int dt;
 		@GetVariable("ppmm_tiredness_delta", dt);
-		float dtf;
 
 		if (!dt) {
-			return 0.00015;
+			return 0.00030;
 		}
 
 		return dt * 0.00001;
