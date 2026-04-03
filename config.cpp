@@ -10,7 +10,7 @@ float g_jump_height      = 1.0f;
 int   g_landing_gravity  = -2500;
 
 bool  g_tiredness_effect = true;
-int   g_tiredness_delta = 15;
+int   g_tiredness_delta = 30;
 
 void LoadConfig()
 {
@@ -60,7 +60,7 @@ void LoadConfig()
     // TIREDNESS DELTA -------------------------------------------
 
     g_tiredness_delta = GetPrivateProfileIntA(
-        "Constants", "TirednessDelta", 15, ".\\PPMM.ini");
+        "Constants", "TirednessDelta", 30, ".\\PPMM.ini");
 
     DebugLog("TirednessDelta= ", g_tiredness_delta, "\n");
 }

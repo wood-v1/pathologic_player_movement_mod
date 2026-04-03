@@ -168,6 +168,7 @@
     <None Include="..\..\..\..\..\Modding\Pathologic\script-sources\ScriptSources\ppmm_stats_effect.sc">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </None>
+    <None Include="CHANGELOG.md" />
     <None Include="LICENSE" />
     <None Include="README.md" />
   </ItemGroup>
