@@ -17,13 +17,13 @@ maintask TEffect: TSlow
 	
 	bool Tick(float fDeltaTime) {
 		timer += fDeltaTime * 500;
-		float dt = readSpeedDeltaFromVar();
+		float dt = ReadSpeedDeltaFromVar();
 
-		float sumSpeed = absf(CalcSumPlayerSpeed());
+		float sumSpeed = CalcSumPlayerSpeed();
 		
 		if (timer >= 0.3) {
 
-			if (sumSpeed > 50) {
+			if (sumSpeed > 10) {
 				ModPropertyF("tiredness", dt, 0, 1);
 				ReportTirednessChange(dt);
 			}
@@ -34,7 +34,7 @@ maintask TEffect: TSlow
 		return false;
 	}
 
-	float readSpeedDeltaFromVar() {
+	float ReadSpeedDeltaFromVar() {
 		int dt;
 		@GetVariable("ppmm_tiredness_delta", dt);
 		float dtf;
@@ -49,7 +49,7 @@ maintask TEffect: TSlow
 	float CalcSumPlayerSpeed() {
 		Vector vSpeed;
 		@GetSpeed(vSpeed);
-		return vSpeed.x + vSpeed.y + vSpeed.z;
+		return absf(vSpeed.x) + absf(vSpeed.y) + absf(vSpeed.z);
 	}
 
 }
