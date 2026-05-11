@@ -1,7 +1,6 @@
-﻿#include "pch.h"
+#include "framework.h"
 #include "config.h"
-#include "hook.h"
-#include <windows.h>
+#include "bootstrap.h"
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID)
 {

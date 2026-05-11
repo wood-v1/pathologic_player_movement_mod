@@ -1,23 +1,20 @@
-#include "pch.h"
+#include "framework.h"
 #include "debug.h"
-#include <consoleapi.h>
-#include <consoleapi2.h>
 #include "config.h"
+#include "OynonToolsApi.h"
+
+namespace
+{
+constexpr const char* PPMM_DEBUG_CHANNEL = "PPMM";
+}
 
 void TryOpenDebugConsole()
 {
-    if (!g_debug) {
-        return;
-    }
+    OynonDebugConfigureChannel(PPMM_DEBUG_CHANNEL, g_debug ? TRUE : FALSE, ".\\PPMM.log", "");
+    OynonDebugOpenConsole();
+}
 
-    if (!AllocConsole()) {
-        return;
-    }
-
-    FILE* f;
-    freopen_s(&f, "CONOUT$", "w", stdout);
-    freopen_s(&f, "CONOUT$", "w", stderr);
-    freopen_s(&f, "CONIN$", "r", stdin);
-
-    SetConsoleTitleA("PPMM Debug Console");
+void DebugLogText(const char* text)
+{
+    OynonDebugLog(PPMM_DEBUG_CHANNEL, text);
 }

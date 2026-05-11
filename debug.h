@@ -1,33 +1,14 @@
 #pragma once
 
-#include <iostream>
-#include <string>
-#include <type_traits>
-#include <iomanip>
-#include "config.h"
+#include <sstream>
 
 void TryOpenDebugConsole();
-
-template<typename T>
-void DebugLog(T value) {
-    if (g_debug) {
-        if (std::is_same<T, bool>::value) {
-            std::cout << std::boolalpha << value;
-        }
-        else {
-            std::cout << value;
-        }
-    }
-}
-
-template<typename T, typename... Args>
-void DebugLog(T first, Args... args) {
-    DebugLog(first);
-    DebugLog(args...);
-}
+void DebugLogText(const char* text);
 
 template<typename... Args>
-void DebugLogLn(Args... args) {
-    DebugLog(args...);
-    if (g_debug) std::cout;
+void DebugLog(Args... args) {
+    std::ostringstream stream;
+    stream << std::boolalpha;
+    (stream << ... << args);
+    DebugLogText(stream.str().c_str());
 }
