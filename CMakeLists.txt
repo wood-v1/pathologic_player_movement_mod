@@ -19,6 +19,7 @@ add_library(PPMM SHARED
     config.cpp
     debug.cpp
     dllmain.cpp
+    module_context.cpp
 )
 
 target_compile_features(PPMM PRIVATE cxx_std_17)
@@ -37,3 +38,9 @@ if(MSVC)
     target_compile_options(PPMM PRIVATE /W4 /EHsc)
     target_link_options(PPMM PRIVATE /SUBSYSTEM:WINDOWS)
 endif()
+
+add_custom_command(
+    TARGET PPMM POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${CMAKE_CURRENT_SOURCE_DIR}/PPMM.ini"
+        "$<TARGET_FILE_DIR:PPMM>/PPMM.ini")

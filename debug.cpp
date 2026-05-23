@@ -1,6 +1,5 @@
 #include "framework.h"
 #include "debug.h"
-#include "config.h"
 #include "OynonToolsApi.h"
 
 namespace
@@ -10,7 +9,7 @@ constexpr const char* PPMM_DEBUG_CHANNEL = "PPMM";
 
 void TryOpenDebugConsole()
 {
-    OynonDebugConfigureChannel(PPMM_DEBUG_CHANNEL, g_debug ? TRUE : FALSE, ".\\PPMM.log", "");
+    OynonDebugConfigureLauncherChannel(PPMM_DEBUG_CHANNEL, FALSE);
     OynonDebugOpenConsole();
 }
 

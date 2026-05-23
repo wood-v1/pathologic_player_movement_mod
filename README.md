@@ -12,7 +12,7 @@ It works by applying runtime patches inside `Engine.dll` and adjusting movement-
 - Movement speed multiplier
 - Jump height multiplier
 - Landing gravity adjustment
-- Optional debug console
+- Centralized debug console via `GameModLauncher.ini`
 
 ### Tiredness Effect
 
@@ -57,7 +57,6 @@ Settings are stored in `PPMM.ini`.
 Example:
 
     [General]
-    Debug=1
     TirednessEffect=1
 
     [Constants]
@@ -81,12 +80,6 @@ Example:
 ## PPMM.ini Settings Guide
 
 ### [General]
-
-**Debug**
-
-* Description - 1 to enable debug information (only for testing purposes), 0 to disable
-* Type - boolean
-* Default value - 0
 
 **TirednessEffect**
 
