@@ -2,7 +2,7 @@ import "std"
 import "timed_loop"
 
 maintask TEffect extends TimedLoop do
-  var float timer
+  local timer: float
 
   function init() -> void
     super.init(12)
@@ -18,24 +18,34 @@ maintask TEffect extends TimedLoop do
     timer = timer + fDeltaTime * 500
 
     if timer >= 0.3 then
-      local sumSpeed: float = CalcSumPlayerSpeed()
-      if sumSpeed > 10 then
-        local dt: float = ReadSpeedDeltaFromVariable()
-        ModPropertyF("tiredness", dt, 0, 1)
-        ReportTirednessChange(dt)
-      end
-
+      ApplyTirednessEffect()
       timer = 0
     end
 
     return false
   end
 
+  function ApplyTirednessEffect() -> void
+    local hasTiredness: bool
+    native.HasProperty("tiredness", hasTiredness)
+    if not hasTiredness then
+      return
+    end
+
+    if CalcSumPlayerSpeed() <= 10 then
+      return
+    end
+
+    local dt: float = ReadSpeedDeltaFromVariable()
+    ModPropertyF("tiredness", dt, 0, 1)
+    ReportTirednessChange(dt)
+  end
+
   function ReadSpeedDeltaFromVariable() -> float
     local dt: int
     native.GetVariable("ppmm_tiredness_delta", dt)
 
-    if not dt then
+    if dt <= 0 then
       return 0.00030
     end
 
@@ -52,4 +62,5 @@ maintask TEffect extends TimedLoop do
 
     return speedX + speedY + speedZ
   end
+
 end

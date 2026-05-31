@@ -2,40 +2,34 @@
 #include "bootstrap.h"
 #include "config.h"
 #include "debug.h"
+#include "ppmm_api_internal.h"
+#include "tiredness_effect.h"
 #include "OynonToolsApi.h"
 
-#include <string>
-
-DWORD WINAPI TirednessEffectStart(LPVOID)
+namespace
 {
-    std::string cmd = "setvar ppmm_tiredness_delta " + std::to_string(g_tiredness_delta);
-    OynonExecCommand(cmd.c_str());
-    Sleep(100);
-    OynonExecCommand("effect player ppmm_stats_effect.bin");
-
-    DebugLog("Sprint effect applied\n");
-    return 0;
+void ResetMovementToDefault()
+{
+    OynonSetMovementFrictionMultiplier(1.0f);
+    OynonSetMovementJumpHeightMultiplier(1.0f);
+    OynonSetMovementLandingGravity(-2500);
 }
-
-DWORD WINAPI TirednessEffectStop(LPVOID)
-{
-    OynonExecCommand("trigger player ppmm_stats_effect_stop");
-
-    DebugLog("Sprint effect removed\n");
-    return 0;
 }
 
 DWORD WINAPI MainThread(LPVOID)
 {
     LoadConfig();
+    TirednessEffectInitialize();
 
     DebugLog("PPMM.dll injected successfully!\n");
     DebugLog("Config loaded\n");
 
-    const DWORD flags =
-        OYNON_HOOK_CONSOLE_EXECUTE |
+    DWORD flags =
         OYNON_HOOK_MOVEMENT_FRICTION |
         OYNON_HOOK_MOVEMENT_VERTICAL;
+    if (g_tiredness_effect) {
+        flags |= OYNON_HOOK_CONSOLE_EXECUTE;
+    }
     if (!OynonInitializeHooksWhenReady(flags)) {
         DebugLog("OynonTools initialization failed for shared hooks\n");
     }
@@ -45,51 +39,50 @@ DWORD WINAPI MainThread(LPVOID)
 
     bool toggleSpeed = false;
     bool prevCapsState = false;
-
-    bool isSprinting = false;
     bool wasSprinting = false;
+    bool blockSprintUntilShiftRelease = false;
 
     while (true)
     {
+        const bool shiftHeldRaw = (GetAsyncKeyState(VK_LSHIFT) & 0x8000) != 0;
+        const bool externalBlocked = PpmmIsExternalSprintBlocked();
+        if (externalBlocked) {
+            toggleSpeed = false;
+            blockSprintUntilShiftRelease =
+                blockSprintUntilShiftRelease || shiftHeldRaw;
+        }
+
         const bool capsPressedNow = (GetAsyncKeyState(VK_CAPITAL) & 0x0001) != 0;
-        if (capsPressedNow && !prevCapsState)
-        {
+        if (capsPressedNow && !prevCapsState &&
+            !externalBlocked && !blockSprintUntilShiftRelease) {
             toggleSpeed = !toggleSpeed;
             DebugLog(toggleSpeed ? "Speed toggled ON\n" : "Speed toggled OFF\n");
         }
         prevCapsState = capsPressedNow;
 
-        isSprinting = ((GetAsyncKeyState(VK_LSHIFT) & 0x8000) || toggleSpeed);
-
-        if (g_tiredness_effect) {
-            if (isSprinting && !wasSprinting)
-            {
-                DebugLog("Sprint START\n");
-                CreateThread(0, 0, TirednessEffectStart, 0, 0, 0);
-            }
-
-            if (!isSprinting && wasSprinting)
-            {
-                DebugLog("Sprint END\n");
-                CreateThread(0, 0, TirednessEffectStop, 0, 0, 0);
-            }
+        if (blockSprintUntilShiftRelease && !shiftHeldRaw) {
+            blockSprintUntilShiftRelease = false;
+            DebugLog("Sprint input unlocked after external block\n");
         }
 
-        if (isSprinting && !wasSprinting)
-        {
+        const bool sprintActive =
+            !externalBlocked &&
+            !blockSprintUntilShiftRelease &&
+            (shiftHeldRaw || toggleSpeed);
+
+        TirednessEffectUpdate(sprintActive);
+
+        if (sprintActive && !wasSprinting) {
             OynonSetMovementFrictionMultiplier(g_speed);
             OynonSetMovementJumpHeightMultiplier(g_jump_height);
             OynonSetMovementLandingGravity(g_landing_gravity);
         }
-        else if (!isSprinting && wasSprinting)
-        {
-            OynonSetMovementFrictionMultiplier(1.0f);
-            OynonSetMovementJumpHeightMultiplier(1.0f);
-            OynonSetMovementLandingGravity(-2500);
+        else if (!sprintActive && wasSprinting) {
+            ResetMovementToDefault();
         }
 
-        wasSprinting = isSprinting;
-
+        wasSprinting = sprintActive;
+        PpmmSetSprintActive(sprintActive);
         Sleep(1);
     }
 

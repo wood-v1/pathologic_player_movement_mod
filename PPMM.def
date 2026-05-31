@@ -1,0 +1,4 @@
+LIBRARY "PPMM"
+
+EXPORTS
+    PpmmGetApi=_PpmmGetApi@4

@@ -20,10 +20,13 @@ add_library(PPMM SHARED
     debug.cpp
     dllmain.cpp
     module_context.cpp
+    PPMM.def
+    ppmm_api.cpp
+    tiredness_effect.cpp
 )
 
-target_compile_features(PPMM PRIVATE cxx_std_17)
-target_compile_definitions(PPMM PRIVATE WIN32_LEAN_AND_MEAN NOMINMAX _CRT_SECURE_NO_WARNINGS)
+target_compile_definitions(PPMM PRIVATE WIN32_LEAN_AND_MEAN NOMINMAX _CRT_SECURE_NO_WARNINGS PPMM_EXPORTS)
+target_include_directories(PPMM PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_include_directories(PPMM PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${OYNONTOOLS_INCLUDE_DIR})
 target_link_directories(PPMM PRIVATE
     "$<$<CONFIG:Debug>:${OYNONTOOLS_LIBRARY_DIR}/Debug>"
@@ -33,6 +36,11 @@ target_link_directories(PPMM PRIVATE
 target_link_libraries(PPMM PRIVATE OynonTools.lib)
 
 set_target_properties(PPMM PROPERTIES PREFIX "" OUTPUT_NAME "PPMM" SUFFIX ".dll")
+set_target_properties(PPMM PROPERTIES
+    CXX_STANDARD 17
+    CXX_STANDARD_REQUIRED YES
+    CXX_EXTENSIONS NO
+)
 
 if(MSVC)
     target_compile_options(PPMM PRIVATE /W4 /EHsc)

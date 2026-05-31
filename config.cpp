@@ -9,12 +9,17 @@ float g_speed = 1.0f;
 float g_jump_height = 1.0f;
 int g_landing_gravity = -2500;
 
+bool g_debug = false;
 bool g_tiredness_effect = true;
 int g_tiredness_delta = 30;
 
 void LoadConfig()
 {
+    g_debug = GetPrivateProfileIntA(
+        "General", "Debug", 0, GetIniPath()) != 0;
+
     TryOpenDebugConsole();
+    DebugLog("Debug= ", g_debug, "\n");
 
     char charBuffer[32]{};
     GetPrivateProfileStringA(
@@ -36,10 +41,14 @@ void LoadConfig()
     DebugLog("JumpLandingGravity= ", g_landing_gravity, "\n");
 
     g_tiredness_effect = GetPrivateProfileIntA(
-        "General", "TirednessEffect", 1, GetIniPath());
+        "General", "TirednessEffect", 1, GetIniPath()) != 0;
     DebugLog("TirednessEffect= ", g_tiredness_effect, "\n");
 
     g_tiredness_delta = GetPrivateProfileIntA(
         "Constants", "TirednessDelta", 30, GetIniPath());
+    if (g_tiredness_delta < 0) {
+        g_tiredness_delta = 0;
+    }
     DebugLog("TirednessDelta= ", g_tiredness_delta, "\n");
+
 }
